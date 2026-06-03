@@ -153,6 +153,7 @@ export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [showBookingPopup, setShowBookingPopup] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Admin authentication state
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
@@ -611,7 +612,7 @@ export default function App() {
           )}
           {/* Header Navigation */}
           <header className={`header-nav ${isScrolled || currentPage !== "home" ? "scrolled" : ""}`}>
-            <a className="logo-container" onClick={() => navigateToPage("home")}>
+            <a className="logo-container" onClick={() => { navigateToPage("home"); setIsMobileMenuOpen(false); }}>
               <h1 className="logo-main">PARTHOS</h1>
               <span className="logo-sub">CHALET VILLA</span>
             </a>
@@ -637,10 +638,54 @@ export default function App() {
               </a>
             </nav>
 
-            <button className="btn-gold" style={{ height: "40px", padding: "0 20px", fontSize: "11px" }} onClick={() => { setShowBookingPopup(true); trackClick("Header Button Click", "Book Now Clicked"); }}>
-              BOOK NOW
-            </button>
+            <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
+              <button className="btn-gold header-booking-btn" onClick={() => { setShowBookingPopup(true); trackClick("Header Button Click", "Book Now Clicked"); }}>
+                BOOK NOW
+              </button>
+              
+              <button className="mobile-menu-toggle" aria-label="Toggle Menu" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                <span className={`burger-bar ${isMobileMenuOpen ? "open" : ""}`} />
+              </button>
+            </div>
           </header>
+
+          {/* Mobile Navigation Drawer */}
+          <div className={`mobile-nav-drawer ${isMobileMenuOpen ? "open" : ""}`}>
+            <div className="drawer-header">
+              <a className="logo-container" onClick={() => { navigateToPage("home"); setIsMobileMenuOpen(false); }}>
+                <span className="logo-main" style={{ fontSize: "24px" }}>PARTHOS</span>
+                <span className="logo-sub" style={{ fontSize: "8px" }}>CHALET VILLA</span>
+              </a>
+              <button className="drawer-close" onClick={() => setIsMobileMenuOpen(false)}>&times;</button>
+            </div>
+            
+            <nav className="drawer-links">
+              <a className={`drawer-link ${currentPage === "home" ? "active" : ""}`} onClick={() => { navigateToPage("home"); setIsMobileMenuOpen(false); }}>
+                HOME
+              </a>
+              <a className={`drawer-link ${currentPage === "about" ? "active" : ""}`} onClick={() => { navigateToPage("about"); setIsMobileMenuOpen(false); }}>
+                ABOUT
+              </a>
+              <a className={`drawer-link ${currentPage === "rooms" ? "active" : ""}`} onClick={() => { navigateToPage("rooms"); setIsMobileMenuOpen(false); }}>
+                STAY
+              </a>
+              <a className={`drawer-link ${currentPage === "experiences" ? "active" : ""}`} onClick={() => { navigateToPage("experiences"); setIsMobileMenuOpen(false); }}>
+                EXPERIENCES
+              </a>
+              <a className={`drawer-link ${currentPage === "gallery" ? "active" : ""}`} onClick={() => { navigateToPage("gallery"); setIsMobileMenuOpen(false); }}>
+                GALLERY
+              </a>
+              <a className={`drawer-link ${currentPage === "contact" ? "active" : ""}`} onClick={() => { navigateToPage("contact"); setIsMobileMenuOpen(false); }}>
+                CONTACT
+              </a>
+            </nav>
+            
+            <div className="drawer-footer">
+              <button className="btn-gold" style={{ width: "100%", height: "46px" }} onClick={() => { setIsMobileMenuOpen(false); setShowBookingPopup(true); trackClick("Mobile Drawer CTA", "Book Now Clicked"); }}>
+                BOOK NOW
+              </button>
+            </div>
+          </div>
 
           {/* Conditional Subpages */}
           {currentPage === "home" && (
