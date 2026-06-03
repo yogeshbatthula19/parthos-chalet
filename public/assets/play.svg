@@ -1,0 +1,11 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Play icon group" clip-path="url(#clip0_108_20)">
+<circle id="Play circle" cx="18" cy="18" r="17.2" stroke="var(--stroke-0, white)" stroke-opacity="0.75" stroke-width="1.6"/>
+<path id="Play icon" d="M16.111 13.8303L22.7217 19.0968L15.6013 22.267L16.111 13.8303Z" fill="var(--fill-0, white)"/>
+</g>
+<defs>
+<clipPath id="clip0_108_20">
+<rect width="36" height="36" fill="white"/>
+</clipPath>
+</defs>
+</svg>

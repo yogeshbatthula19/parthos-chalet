@@ -1,0 +1,11 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 34 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Icon / amenities" clip-path="url(#clip0_108_32)">
+<path id="Polygon" d="M28.6343 -5.07797V9.07797H14.4784V-5.07797H28.6343Z" stroke="var(--stroke-0, #FF8800)" stroke-width="1.4"/>
+<circle id="Ellipse" cx="17" cy="14" r="3" fill="var(--fill-0, #FF8800)"/>
+</g>
+<defs>
+<clipPath id="clip0_108_32">
+<rect width="34" height="28" fill="white"/>
+</clipPath>
+</defs>
+</svg>

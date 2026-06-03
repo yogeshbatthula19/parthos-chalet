@@ -1,0 +1,133 @@
+/* Parthos Chalet Villa - Core Design System */
+
+:root {
+  /* Colors */
+  --primary-gold: #d4af37;
+  --primary-gold-rgb: 212, 175, 55;
+  --secondary-gold: #b88047;
+  --orange-accent: #ff8800;
+  --orange-hover: #e07700;
+  
+  --dark-bg: #0f1a19;
+  --dark-card: #132221;
+  --light-bg: #fcfaf5;
+  --light-accent: #fff6ec;
+  --border-color: rgba(221, 213, 198, 0.7);
+  
+  --text-dark: #232a28;
+  --text-gray: #656a64;
+  --text-light: #ffffff;
+  
+  /* Fonts */
+  --font-serif: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Jost", "Inter", system-ui, sans-serif;
+  
+  /* Layout */
+  --header-height: 80px;
+  --max-width: 1200px;
+  
+  /* Transition speed */
+  --transition-smooth: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-fast: all 0.25s ease;
+  
+  font-family: var(--font-sans);
+  color: var(--text-dark);
+  background-color: var(--light-bg);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--light-bg);
+  overflow-x: hidden;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.reveal-element {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.reveal-element.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--light-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary-gold);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-gold);
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(15, 26, 25, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Utility buttons */
+.btn-gold {
+  background-color: var(--orange-accent);
+  color: var(--text-light);
+  border: none;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-gold:hover {
+  background-color: var(--orange-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 136, 0, 0.2);
+}
+
+.btn-gold:active {
+  transform: translateY(0);
+}
