@@ -1713,10 +1713,51 @@
   color: var(--orange-accent);
 }
 
+/* Subpages Layout Styles */
+.about-reverse {
+  grid-template-columns: 1fr 1.2fr;
+  padding: 40px 8% 80px;
+}
+
+.experiences-page-grid {
+  padding: 80px 8%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.contact-page-layout {
+  padding: 80px 8%;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+}
+
+.contact-form-col {
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 40px;
+}
+
 /* Responsiveness adjustments */
 @media (max-width: 992px) {
   .about-section {
     grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .about-reverse {
+    grid-template-columns: 1fr;
+    padding: 40px 8% 60px;
+  }
+  .experiences-page-grid {
+    grid-template-columns: 1fr;
+    padding: 60px 5%;
+    gap: 30px;
+  }
+  .contact-page-layout {
+    grid-template-columns: 1fr;
+    padding: 60px 5%;
     gap: 40px;
   }
   .stay-section {
@@ -1740,6 +1781,7 @@
   .room-detail-card {
     grid-template-columns: 1fr;
     gap: 30px;
+    direction: ltr !important;
   }
   .dashboard-content-layout {
     grid-template-columns: 1fr;
@@ -1958,5 +2000,8 @@
   .modal-submit-btn {
     height: 44px;
     margin-top: 10px;
+  }
+  .contact-form-col {
+    padding: 24px 20px;
   }
 }

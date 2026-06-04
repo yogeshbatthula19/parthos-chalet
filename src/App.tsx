@@ -960,7 +960,7 @@ export default function App() {
                 </div>
               </section>
 
-              <section className="about-section" style={{ gridTemplateColumns: "1fr 1.2fr", padding: "40px 8% 80px" }}>
+              <section className="about-section about-reverse">
                 <div className="about-content">
                   <span className="eyebrow">THE COUNTRY GETAWAY</span>
                   <h2 className="section-headline">Escape the City Noise</h2>
@@ -1034,7 +1034,7 @@ export default function App() {
                 <p>Tailored moments to relax, connect, and celebrate.</p>
               </section>
 
-              <section className="experiences-page-grid" style={{ padding: "80px 8%", display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "40px" }}>
+              <section className="experiences-page-grid">
                 {EXPERIENCES_LIST.map((exp, idx) => (
                   <div key={idx} className="experience-detail-block" style={{ backgroundColor: "#ffffff", border: "1px solid var(--border-color)", borderRadius: "4px", overflow: "hidden", display: "flex", flexDirection: "column" }}>
                     <div style={{ height: "240px", overflow: "hidden" }}>
@@ -1080,7 +1080,7 @@ export default function App() {
                 <p>Plan your custom countryside escape with us today.</p>
               </section>
 
-              <section className="contact-page-layout" style={{ padding: "80px 8%", display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: "60px" }}>
+              <section className="contact-page-layout">
                 <div className="contact-info-col" style={{ display: "flex", flexDirection: "column", gap: "30px" }}>
                   <h2 style={{ fontFamily: "var(--font-serif)", fontSize: "36px" }}>Connect With Us</h2>
                   <p style={{ fontFamily: "var(--font-sans)", fontSize: "15px", color: "var(--text-gray)", lineHeight: 1.6 }}>
@@ -1103,7 +1103,7 @@ export default function App() {
                   </div>
                 </div>
 
-                <div className="contact-form-col" style={{ backgroundColor: "#ffffff", border: "1px solid var(--border-color)", borderRadius: "4px", padding: "40px" }}>
+                <div className="contact-form-col">
                   {!contactSubmitted ? (
                     <form onSubmit={handleContactSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                       <h3 style={{ fontFamily: "var(--font-serif)", fontSize: "24px" }}>Send A Message</h3>
