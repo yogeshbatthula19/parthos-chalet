@@ -24,37 +24,26 @@ const HERO_SLIDES = [
 // Room data for STAY page
 const VILLA_ROOMS = [
   {
-    id: "royal-suite",
-    name: "The Royal Master Suite",
+    id: "one-bhk-villa",
+    name: "1 BHK Luxury Villa",
     image: "/assets/suite_royal.png",
-    description: "Our signature sun-drenched suite featuring high wooden beams, premium king-size bed, elegant lounge seating, and floor-to-ceiling glass windows opening directly to lush garden vistas.",
+    description: "Our premium 1 BHK private sanctuary featuring high wooden beams, elegant living room space, king-size bed, private terrace, and floor-to-ceiling glass windows offering beautiful garden and countryside views.",
     price: 18000,
     priceLabel: "₹18,000 / night",
-    guests: "2 Adults",
-    size: "850 sq ft",
-    amenities: ["King Bed", "Private Terrace", "Rain Shower", "Mini Bar", "Dedicated Room Service", "Premium Linens"]
+    guests: "2 Adults + 2 Children",
+    size: "1,200 sq ft",
+    amenities: ["King Bed", "Private Terrace", "Living Room", "Infinity Pool Access", "Dedicated Service", "Premium Linens"]
   },
   {
-    id: "poolside-villa",
-    name: "The Poolside Suite",
+    id: "outside-rooms",
+    name: "Independent Outside Rooms",
     image: "/assets/suite_pool.png",
-    description: "Step straight from your bedroom onto the wooden deck of the private infinity pool. Enjoy stunning sunrise pool views, high ceilings, custom orange accents, and absolute comfort.",
-    price: 22000,
-    priceLabel: "₹22,000 / night",
-    guests: "2 Adults + 1 Child",
-    size: "950 sq ft",
-    amenities: ["King Bed", "Direct Pool Access", "Outdoor Lounge", "Bathtub", "Smart TV", "Custom Bar Setup"]
-  },
-  {
-    id: "deluxe-cottage",
-    name: "Garden Deluxe Cottage",
-    image: "/assets/about_living_room.png",
-    description: "Secluded in the green corners of our estate, the Garden Cottage provides ultimate peaceful privacy with a private patio, rustic stone bathrooms, and open garden views.",
-    price: 15000,
-    priceLabel: "₹15,000 / night",
-    guests: "2 Adults",
-    size: "700 sq ft",
-    amenities: ["Queen Bed", "Private Garden Patio", "Rustic Stone Bath", "Coffee Machine", "Wifi Enabled"]
+    description: "Two comfortable independent rooms located right outside the main villa. Perfect for larger groups or extra guests wanting privacy, featuring premium comfort, direct garden access, and cozy layouts.",
+    price: 12000,
+    priceLabel: "₹12,000 / night",
+    guests: "4 Adults (2 per room)",
+    size: "800 sq ft",
+    amenities: ["Queen Beds", "Garden Walkway", "Air Conditioned", "Private Entrances", "Smart TV", "Wifi Enabled"]
   }
 ];
 
@@ -172,7 +161,7 @@ export default function App() {
     checkIn: "",
     checkOut: "",
     guests: "2 Guests",
-    roomPreference: "royal-suite"
+    roomPreference: "one-bhk-villa"
   });
 
   const [contactForm, setContactForm] = useState({
@@ -346,7 +335,7 @@ export default function App() {
         checkIn: "",
         checkOut: "",
         guests: "2 Guests",
-        roomPreference: "royal-suite"
+        roomPreference: "one-bhk-villa"
       });
     }, 3000);
   };
@@ -591,9 +580,8 @@ export default function App() {
                       <div className="form-group">
                         <label htmlFor="roomPreference">Suite Preference</label>
                         <select id="roomPreference" name="roomPreference" value={bookingForm.roomPreference} onChange={handleBookingChange}>
-                          <option value="royal-suite">Royal Master Suite</option>
-                          <option value="poolside-villa">Poolside Suite</option>
-                          <option value="deluxe-cottage">Garden Cottage</option>
+                          <option value="one-bhk-villa">1 BHK Luxury Villa</option>
+                          <option value="outside-rooms">Independent Outside Rooms</option>
                         </select>
                       </div>
                     </div>
