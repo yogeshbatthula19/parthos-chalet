@@ -26,7 +26,7 @@ const VILLA_ROOMS = [
   {
     id: "one-bhk-villa",
     name: "1 BHK Luxury Villa",
-    image: "/assets/1bhk_balcony.jpg",
+    image: "/assets/main.jpg",
     description: "Our premium 1 BHK private sanctuary featuring high wooden beams, elegant living room space, king-size bed, private terrace, and floor-to-ceiling glass windows offering beautiful garden and countryside views.",
     price: 18000,
     priceLabel: "₹18,000 / night",
