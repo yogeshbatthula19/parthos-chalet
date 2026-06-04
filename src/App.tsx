@@ -5,17 +5,17 @@ import "./App.css";
 // Slides data for Hero Carousel
 const HERO_SLIDES = [
   {
-    image: "/assets/hero_bg.png",
+    image: "/assets/main.jpg",
     title: "Escape to Your Private\nLuxury Retreat",
     description: "Experience peaceful countryside living, a private infinity pool, lush green surroundings, and unforgettable moments with family and friends."
   },
   {
-    image: "/assets/wellness_spa.png",
+    image: "/assets/swimming.jpg",
     title: "Serenity & Space\nto Reconnect",
     description: "Nestled in Kongara Kalan, our countryside villa offers absolute privacy and luxury amenities for a premium escape."
   },
   {
-    image: "/assets/about_living_room.png",
+    image: "/assets/1bhk_balcony.jpg",
     title: "Uncompromising Design\n& Scenic Views",
     description: "Indulge in modern architectural comfort, premium private spaces, and dedicated personal hospitality."
   }
@@ -26,7 +26,7 @@ const VILLA_ROOMS = [
   {
     id: "one-bhk-villa",
     name: "1 BHK Luxury Villa",
-    image: "/assets/suite_royal.png",
+    image: "/assets/1bhk_balcony.jpg",
     description: "Our premium 1 BHK private sanctuary featuring high wooden beams, elegant living room space, king-size bed, private terrace, and floor-to-ceiling glass windows offering beautiful garden and countryside views.",
     price: 18000,
     priceLabel: "₹18,000 / night",
@@ -37,7 +37,7 @@ const VILLA_ROOMS = [
   {
     id: "outside-rooms",
     name: "Independent Outside Rooms",
-    image: "/assets/suite_pool.png",
+    image: "/assets/new_rooms.jpg",
     description: "Two comfortable independent rooms located right outside the main villa. Perfect for larger groups or extra guests wanting privacy, featuring premium comfort, direct garden access, and cozy layouts.",
     price: 12000,
     priceLabel: "₹12,000 / night",
@@ -73,38 +73,38 @@ const TESTIMONIALS = [
 const EXPERIENCES_LIST = [
   {
     title: "Family Getaways",
-    image: "/assets/luxury_rooms.png",
+    image: "/assets/kitty.jpg",
     desc: "Create precious family memories in spacious lounges and private yards. Ideal for bonding, indoor games, and dining together away from the rush."
   },
   {
     title: "Poolside Celebrations",
-    image: "/assets/event_winter_ceremony.png",
+    image: "/assets/swimming.jpg",
     desc: "Host anniversaries, birthdays, or close social milestones. Custom pool lights, high-end barbecue grates, and catering options make events unforgettable."
   },
   {
     title: "Weekend Staycations",
-    image: "/assets/event_chef_table.png",
+    image: "/assets/candle.jpg",
     desc: "The perfect country road trip. Reach Kongara Kalan in less than an hour from the city and sink into instant countryside peace."
   },
   {
     title: "Private Gatherings",
-    image: "/assets/event_private_retreat.png",
+    image: "/assets/haldi.jpg",
     desc: "Secluded executive team meets or private celebrations. Benefit from high-speed internet, dedicated service, and spacious breakout lawns."
   }
 ];
 
 // Gallery images mapping
 const GALLERY_IMAGES = [
-  { src: "/assets/hero_bg.png", tag: "Pool" },
-  { src: "/assets/suite_royal.png", tag: "Suites" },
-  { src: "/assets/suite_pool.png", tag: "Pool" },
+  { src: "/assets/main.jpg", tag: "Villa" },
+  { src: "/assets/swimming.jpg", tag: "Pool" },
+  { src: "/assets/1bhk_balcony.jpg", tag: "Villa" },
+  { src: "/assets/new_rooms.jpg", tag: "Suites" },
+  { src: "/assets/haldi.jpg", tag: "Celebrations" },
+  { src: "/assets/haldi_2.jpg", tag: "Celebrations" },
+  { src: "/assets/candle.jpg", tag: "Dining" },
+  { src: "/assets/kitty.jpg", tag: "Gatherings" },
   { src: "/assets/about_living_room.png", tag: "Interiors" },
-  { src: "/assets/luxury_rooms.png", tag: "Suites" },
-  { src: "/assets/fine_dining.png", tag: "Dining" },
-  { src: "/assets/wellness_spa.png", tag: "Wellness" },
-  { src: "/assets/event_winter_ceremony.png", tag: "Celebrations" },
-  { src: "/assets/event_chef_table.png", tag: "Dining" },
-  { src: "/assets/event_private_retreat.png", tag: "Gatherings" }
+  { src: "/assets/fine_dining.png", tag: "Dining" }
 ];
 
 interface Booking {
