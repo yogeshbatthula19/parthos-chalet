@@ -137,7 +137,18 @@ interface ClickEvent {
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
-  const [currentPage, setCurrentPage] = useState("home");
+  
+  // Resolve page view from current path for true URL routing and SEO
+  const getPageFromPath = (path: string) => {
+    if (path === "/about") return "about";
+    if (path === "/stay" || path === "/rooms") return "rooms";
+    if (path === "/experiences") return "experiences";
+    if (path === "/gallery") return "gallery";
+    if (path === "/contact") return "contact";
+    if (path === "/admin") return "admin";
+    return "home";
+  };
+  const currentPage = getPageFromPath(currentPath);
   const [activeSlide, setActiveSlide] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
@@ -243,9 +254,8 @@ export default function App() {
   };
 
   const navigateToPage = (pageName: string) => {
-    navigateToPath("/");
-    setCurrentPage(pageName);
-    trackClick("Navigation", `Swapped tab: ${pageName}`);
+    const targetPath = pageName === "home" ? "/" : (pageName === "rooms" ? "/stay" : `/${pageName}`);
+    navigateToPath(targetPath);
   };
 
   // Track customer interactions
