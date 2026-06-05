@@ -706,10 +706,6 @@ export default function App() {
                         <p className="hero-desc">{slide.description}</p>
                         <div className="hero-ctas">
                           <button className="btn-gold hero-btn" onClick={() => { setShowBookingPopup(true); trackClick("Hero Button Click", "Book Your Stay Clicked"); }}>Book Your Stay</button>
-                          <button className="watch-intro" onClick={() => { navigateToPage("gallery"); trackClick("Hero CTA Click", "Watch Villa Tour Clicked"); }}>
-                            <img src="/assets/play.svg" alt="Play Button" />
-                            Watch Villa Tour
-                          </button>
                         </div>
                       </div>
                     </div>
