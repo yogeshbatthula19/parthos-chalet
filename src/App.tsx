@@ -362,7 +362,7 @@ export default function App() {
   };
 
   // Google Apps Script Web App URL
-  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyMITkjVkWksbi_aetIuyzZh1wn85cfYNPK5fuNrVETdNMzWxxSfvb8XdbXfzcvOoevwg/exec";
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxXmoj1RQqctAfn7McbnE15ssK_8JSKv9XSkS-LRa9ZxUuhtEqJbQlREt_JLTK0Vs8AGQ/exec";
 
   const handleBookingSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
