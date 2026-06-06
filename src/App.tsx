@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useIntersectionObserver } from "./hooks/useIntersectionObserver";
-import emailjs from "@emailjs/browser";
 import "./App.css";
 
 // Slides data for Hero Carousel
@@ -362,11 +361,8 @@ export default function App() {
     */
   };
 
-  // EmailJS configuration variables. Configured with your active public key and service ID.
-  const EMAILJS_SERVICE_ID = "service_q01yn3m"; 
-  const EMAILJS_ADMIN_TEMPLATE_ID = "template_l8g801m"; 
-  const EMAILJS_CUSTOMER_TEMPLATE_ID = "template_zkxhqyb"; 
-  const EMAILJS_PUBLIC_KEY = "Ke0cBUm0LWOTx2ryG";
+  // Google Apps Script Web App URL
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyMITkjVkWksbi_aetIuyzZh1wn85cfYNPK5fuNrVETdNMzWxxSfvb8XdbXfzcvOoevwg/exec";
 
   const handleBookingSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -388,7 +384,7 @@ export default function App() {
     // Call placeholder for Firebase
     await saveToFirebase("bookings", newBooking);
 
-    // Trigger EmailJS notifications
+    // Trigger Google Apps Script email notifications
     try {
       const emailParams = {
         name: bookingForm.name,
@@ -402,23 +398,16 @@ export default function App() {
         page: activePage
       };
 
-      // 1. Send reservation alert to stay@parthoschalet.com (configured in Template A)
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_ADMIN_TEMPLATE_ID,
-        emailParams,
-        EMAILJS_PUBLIC_KEY
-      );
-
-      // 2. Send confirmation to the customer (configured in Template B)
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_CUSTOMER_TEMPLATE_ID,
-        emailParams,
-        EMAILJS_PUBLIC_KEY
-      );
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors", // Required to allow silent redirection of Apps Script response
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(emailParams)
+      });
       
-      console.log("Booking emails sent successfully.");
+      console.log("Booking email request sent to Google Apps Script.");
     } catch (error) {
       console.error("Failed to send booking emails:", error);
     }
@@ -458,33 +447,30 @@ export default function App() {
     // Call placeholder for Firebase
     await saveToFirebase("inquiries", newInquiry);
 
-    // Trigger EmailJS notifications
+    // Trigger Google Apps Script email notifications
     try {
       const emailParams = {
         name: contactForm.name,
         email: contactForm.email,
-        message: contactForm.message,
+        phone: "-",
+        checkIn: "-",
+        checkOut: "-",
+        guests: "-",
+        roomPreference: `Message: ${contactForm.message}`,
         submittedAt: newInquiry.submittedAt,
         page: activePage
       };
 
-      // 1. Send alert to stay@parthoschalet.com (Template A)
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_ADMIN_TEMPLATE_ID,
-        emailParams,
-        EMAILJS_PUBLIC_KEY
-      );
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(emailParams)
+      });
 
-      // 2. Send confirmation to the customer (Template B)
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_CUSTOMER_TEMPLATE_ID,
-        emailParams,
-        EMAILJS_PUBLIC_KEY
-      );
-
-      console.log("Contact emails sent successfully.");
+      console.log("Contact email request sent to Google Apps Script.");
     } catch (error) {
       console.error("Failed to send contact emails:", error);
     }
