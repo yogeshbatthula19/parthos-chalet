@@ -6,18 +6,18 @@ import "./App.css";
 const HERO_SLIDES = [
   {
     image: "/assets/main.jpg",
-    title: "Escape to Your Private\nLuxury Retreat",
-    description: "Experience peaceful countryside living, a private infinity pool, lush green surroundings, and unforgettable moments with family and friends."
+    title: "Escape to Space,\nSerenity & Scenic Views",
+    description: "Nestled amidst lush greenery near Adibatla, Parthos Chalet is a private luxury villa designed for those seeking peace, privacy, and unforgettable moments."
   },
   {
     image: "/assets/swimming.jpg",
-    title: "Serenity & Space\nto Reconnect",
-    description: "Nestled in Kongara Kalan, our countryside villa offers absolute privacy and luxury amenities for a premium escape."
+    title: "Relax By The\nInfinity Swimming Pool",
+    description: "Take a refreshing dip while enjoying uninterrupted views of nature, open skies, and peaceful countryside surroundings."
   },
   {
     image: "/assets/1bhk_balcony.jpg",
-    title: "Uncompromising Design\n& Scenic Views",
-    description: "Indulge in modern architectural comfort, premium private spaces, and dedicated personal hospitality."
+    title: "Unwind on Expansive\nLush Green Lawns",
+    description: "Enjoy absolute privacy and space designed for family gatherings, celebrations, reunions, and outdoor staycation comfort."
   }
 ];
 
@@ -50,21 +50,15 @@ const VILLA_ROOMS = [
 // Testimonials data
 const TESTIMONIALS = [
   {
-    name: "Ananya Rao",
-    location: "Gachibowli, Hyderabad",
-    text: "Parthos Chalet Villa is a hidden gem near Hyderabad. The private infinity pool is absolutely magical, and the level of privacy we experienced was unmatched. Will definitely visit again!",
+    name: "The Rao Family",
+    location: "Hyderabad / Adibatla Getaway",
+    text: "The perfect combination of privacy, comfort, and nature. The lawn and infinity pool made our family gathering truly memorable.",
     rating: 5
   },
   {
     name: "Vikram Reddy",
-    location: "Jubilee Hills, Hyderabad",
-    text: "The perfect weekend staycation with family. The spacious living areas, lush green gardens, and excellent hospitality made our stay memorable. The children loved the open outdoor spaces.",
-    rating: 5
-  },
-  {
-    name: "Siddharth Sen",
-    location: "Begumpet, Hyderabad",
-    text: "Hosted a poolside celebration for my 30th birthday. The custom lighting, catering setups, and personalized hospitality were exceptional. All our guests were completely wowed by the villa.",
+    location: "Gachibowli, Hyderabad",
+    text: "A peaceful getaway near Hyderabad. Spacious villa, beautiful views, and an incredibly relaxing atmosphere.",
     rating: 5
   }
 ];
@@ -747,6 +741,11 @@ export default function App() {
                       <img src={slide.image} alt="Chalet Villa View" className="hero-image" />
                       <div className="hero-overlay" />
                       <div className="hero-content">
+                        {index === 0 && (
+                          <span className="hero-eyebrow" style={{ display: "block", color: "var(--primary-gold)", letterSpacing: "3px", fontSize: "14px", fontWeight: 700, textTransform: "uppercase", marginBottom: "12px" }}>
+                            Luxury Farm Stay Near Hyderabad
+                          </span>
+                        )}
                         <h1 className="hero-title">
                           {slide.title.split("\n").map((line, i) => (
                             <span key={i} style={{ display: "block" }}>
@@ -757,6 +756,7 @@ export default function App() {
                         <p className="hero-desc">{slide.description}</p>
                         <div className="hero-ctas">
                           <button className="btn-gold hero-btn" onClick={() => { setShowBookingPopup(true); trackClick("Hero Button Click", "Book Your Stay Clicked"); }}>Book Your Stay</button>
+                          <button className="btn-gold hero-btn outline" onClick={() => navigateToPage("rooms")} style={{ background: "transparent", border: "1px solid white", marginLeft: "15px" }}>Explore The Villa</button>
                         </div>
                       </div>
                     </div>
@@ -776,41 +776,41 @@ export default function App() {
                 </div>
               </section>
 
-              {/* Features Strip */}
+              {/* Features/Highlights Strip */}
               <section
                 ref={featuresRef as any}
                 className={`features-section reveal-element ${featuresVisible ? "revealed" : ""}`}
               >
                 <div className="feature-item">
                   <div className="feature-icon-wrapper">
-                    <img src="/assets/location.svg" className="feature-icon" alt="Pool Icon" />
+                    <span style={{ fontSize: "28px" }}>🌿</span>
                   </div>
-                  <h3 className="feature-title">Private Infinity Pool</h3>
-                  <p className="feature-body">Relax and unwind in your exclusive pool surrounded by nature.</p>
+                  <h3 className="feature-title">Expansive Private Lawn</h3>
+                  <p className="feature-body">Perfect for family gatherings, celebrations, outdoor games, and memorable evenings.</p>
                 </div>
 
                 <div className="feature-item">
                   <div className="feature-icon-wrapper">
-                    <img src="/assets/amenities.svg" className="feature-icon" alt="Amenities Icon" />
+                    <span style={{ fontSize: "28px" }}>🏊</span>
                   </div>
-                  <h3 className="feature-title">Luxury Amenities</h3>
-                  <p className="feature-body">Modern comforts designed for a seamless stay.</p>
+                  <h3 className="feature-title">Infinity Pool Experience</h3>
+                  <p className="feature-body">Take a refreshing dip while enjoying uninterrupted views of nature.</p>
                 </div>
 
                 <div className="feature-item">
                   <div className="feature-icon-wrapper">
-                    <img src="/assets/peaceful.svg" className="feature-icon" alt="Peaceful Icon" />
+                    <span style={{ fontSize: "28px" }}>🏡</span>
                   </div>
-                  <h3 className="feature-title">Peaceful Getaway</h3>
-                  <p className="feature-body">A serene escape away from the city's noise.</p>
+                  <h3 className="feature-title">Exclusive Private Villa</h3>
+                  <p className="feature-body">Spacious interiors thoughtfully designed for comfort, relaxation, and togetherness.</p>
                 </div>
 
                 <div className="feature-item">
                   <div className="feature-icon-wrapper">
-                    <img src="/assets/service.svg" className="feature-icon" alt="Service Icon" />
+                    <span style={{ fontSize: "28px" }}>🌅</span>
                   </div>
-                  <h3 className="feature-title">Personalized Hospitality</h3>
-                  <p className="feature-body">Exceptional service for memorable experiences.</p>
+                  <h3 className="feature-title">Peaceful Countryside Escape</h3>
+                  <p className="feature-body">A calm retreat away from the city's noise, traffic, and daily routine.</p>
                 </div>
               </section>
 
@@ -825,12 +825,13 @@ export default function App() {
                   <img src="/assets/about_living_room.png" alt="Living Room" className="about-image" />
                 </div>
                 <div className="about-content">
-                  <span className="eyebrow">ABOUT PARTHOS</span>
+                  <span className="eyebrow">ABOUT PARTHOS CHALET</span>
                   <h2 className="section-headline">Where Luxury Meets Nature</h2>
                   <p className="about-text">
-                    Nestled amidst lush greenery, Parthos Chalet Villa offers the perfect balance of comfort, privacy, and natural beauty.
-                    Whether you're planning a weekend escape, family gathering, celebration, or staycation, every corner is designed to
-                    help you relax and reconnect.
+                    Surrounded by open landscapes and serene greenery, Parthos Chalet offers the perfect balance of modern comfort and natural beauty. Whether you're planning a weekend getaway, family celebration, friends reunion, or simply a quiet escape, every corner is designed to help you slow down and reconnect.
+                  </p>
+                  <p className="about-text" style={{ marginTop: "-12px", fontSize: "14px", color: "var(--text-gray)" }}>
+                    With a spacious private villa, beautifully maintained lawns, and a stunning infinity pool, Parthos Chalet creates experiences that stay with you long after your visit.
                   </p>
                   <button className="btn-gold btn-discover" onClick={() => navigateToPage("about")}>Discover More</button>
                 </div>
@@ -842,11 +843,32 @@ export default function App() {
                 className={`stay-section reveal-element ${stayVisible ? "revealed" : ""}`}
               >
                 <div className="stay-content">
-                  <h2 className="stay-headline">A Stay Beyond Expectations</h2>
-                  <p className="stay-text">
-                    From elegant interiors and spacious living areas to scenic outdoor spaces and premium amenities, every detail is thoughtfully curated to create unforgettable experiences.
+                  <span className="eyebrow">STAY EXPERIENCE</span>
+                  <h2 className="stay-headline">More Than Just A Stay</h2>
+                  <p className="stay-text" style={{ marginBottom: "25px" }}>
+                    Experience the comfort of a thoughtfully designed private villa where every space invites relaxation.
                   </p>
-                  <button className="btn-gold btn-rooms" onClick={() => navigateToPage("rooms")}>Explore Rooms</button>
+
+                  <div className="stay-features-list" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", marginBottom: "35px", textAlign: "left" }}>
+                    <div className="stay-feat-item">
+                      <h4 style={{ fontFamily: "var(--font-sans)", color: "var(--primary-gold)", fontWeight: 700, margin: "0 0 5px 0", fontSize: "14px" }}>🏡 Private Villa</h4>
+                      <p style={{ fontSize: "12px", color: "var(--text-gray)", margin: 0, lineHeight: 1.4 }}>Spacious bedrooms, comfortable living areas, and modern amenities designed for a relaxing stay.</p>
+                    </div>
+                    <div className="stay-feat-item">
+                      <h4 style={{ fontFamily: "var(--font-sans)", color: "var(--primary-gold)", fontWeight: 700, margin: "0 0 5px 0", fontSize: "14px" }}>🏊 Infinity Pool</h4>
+                      <p style={{ fontSize: "12px", color: "var(--text-gray)", margin: 0, lineHeight: 1.4 }}>A beautiful pool experience surrounded by greenery and open skies.</p>
+                    </div>
+                    <div className="stay-feat-item">
+                      <h4 style={{ fontFamily: "var(--font-sans)", color: "var(--primary-gold)", fontWeight: 700, margin: "0 0 5px 0", fontSize: "14px" }}>🌿 Outdoor Spaces</h4>
+                      <p style={{ fontSize: "12px", color: "var(--text-gray)", margin: 0, lineHeight: 1.4 }}>Large lawns and open seating areas ideal for gatherings, celebrations, and peaceful evenings.</p>
+                    </div>
+                    <div className="stay-feat-item">
+                      <h4 style={{ fontFamily: "var(--font-sans)", color: "var(--primary-gold)", fontWeight: 700, margin: "0 0 5px 0", fontSize: "14px" }}>🌅 Nature Views</h4>
+                      <p style={{ fontSize: "12px", color: "var(--text-gray)", margin: 0, lineHeight: 1.4 }}>Wake up to fresh air, birdsong, and scenic countryside surroundings.</p>
+                    </div>
+                  </div>
+
+                  <button className="btn-gold btn-rooms" onClick={() => navigateToPage("rooms")}>Explore The Villa</button>
                 </div>
 
                 <div className="experience-grid">
@@ -875,21 +897,17 @@ export default function App() {
                 ref={experiencesRef as any}
                 className={`events-section reveal-element ${experiencesVisible ? "revealed" : ""}`}
               >
-                <div className="events-content">
+                <div className="events-content" style={{ maxWidth: "550px" }}>
                   <span className="eyebrow">EXPERIENCES</span>
-                  <h2 className="section-headline">Create Memories That Last</h2>
+                  <h2 className="section-headline">Create Moments Worth Remembering</h2>
                   <p className="events-text">
-                    Celebrate life's special moments in a setting designed for comfort, connection, and relaxation.
+                    Whether you're celebrating a special occasion or simply escaping the city, Parthos Chalet offers the perfect setting.
                   </p>
 
-                  <div className="events-list">
+                  <div className="events-list" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", marginTop: "20px" }}>
                     <div className="event-bullet-item">
                       <span className="gold-bullet" />
                       <span className="bullet-label">Family Getaways</span>
-                    </div>
-                    <div className="event-bullet-item">
-                      <span className="gold-bullet" />
-                      <span className="bullet-label">Poolside Celebrations</span>
                     </div>
                     <div className="event-bullet-item">
                       <span className="gold-bullet" />
@@ -897,37 +915,57 @@ export default function App() {
                     </div>
                     <div className="event-bullet-item">
                       <span className="gold-bullet" />
-                      <span className="bullet-label">Private Gatherings</span>
+                      <span className="bullet-label">Birthday Celebrations</span>
+                    </div>
+                    <div className="event-bullet-item">
+                      <span className="gold-bullet" />
+                      <span className="bullet-label">Friends Reunions</span>
+                    </div>
+                    <div className="event-bullet-item">
+                      <span className="gold-bullet" />
+                      <span className="bullet-label">Pre-Wedding Shoots</span>
+                    </div>
+                    <div className="event-bullet-item">
+                      <span className="gold-bullet" />
+                      <span className="bullet-label">Corporate Outings</span>
+                    </div>
+                    <div className="event-bullet-item">
+                      <span className="gold-bullet" />
+                      <span className="bullet-label">Anniversaries</span>
+                    </div>
+                    <div className="event-bullet-item">
+                      <span className="gold-bullet" />
+                      <span className="bullet-label">Poolside Evenings</span>
                     </div>
                   </div>
 
-                  <button className="btn-gold btn-event" onClick={() => navigateToPage("experiences")}>Plan Your Visit</button>
+                  <button className="btn-gold btn-event" style={{ marginTop: "30px" }} onClick={() => navigateToPage("experiences")}>Plan Your Visit</button>
                 </div>
 
                 <div className="events-grid">
                   <div className="event-card" onClick={() => navigateToPage("experiences")}>
                     <div className="event-img-wrapper">
-                      <img src="/assets/event_winter_ceremony.png" alt="Poolside Celebrations" className="event-img" />
+                      <img src="/assets/kitty.jpg" alt="Family Getaways" className="event-img" />
+                    </div>
+                    <div className="event-card-body">
+                      <h3 className="event-card-title">Family Getaways</h3>
+                      <p className="event-card-desc">Create precious family memories in spacious lounges and private yards.</p>
+                    </div>
+                  </div>
+
+                  <div className="event-card" onClick={() => navigateToPage("experiences")}>
+                    <div className="event-img-wrapper">
+                      <img src="/assets/swimming.jpg" alt="Poolside Celebrations" className="event-img" />
                     </div>
                     <div className="event-card-body">
                       <h3 className="event-card-title">Poolside Celebrations</h3>
-                      <p className="event-card-desc">Experience unique dinner setups, custom pool lighting, and stellar celebrations.</p>
+                      <p className="event-card-desc">Take a refreshing dip while enjoying custom pool lights and barbecue setups.</p>
                     </div>
                   </div>
 
                   <div className="event-card" onClick={() => navigateToPage("experiences")}>
                     <div className="event-img-wrapper">
-                      <img src="/assets/event_private_retreat.png" alt="Private Gatherings" className="event-img" />
-                    </div>
-                    <div className="event-card-body">
-                      <h3 className="event-card-title">Private Gatherings</h3>
-                      <p className="event-card-desc">Cherish intimate moments with close family and friends in complete privacy.</p>
-                    </div>
-                  </div>
-
-                  <div className="event-card" onClick={() => navigateToPage("experiences")}>
-                    <div className="event-img-wrapper">
-                      <img src="/assets/event_chef_table.png" alt="Staycations" className="event-img" />
+                      <img src="/assets/candle.jpg" alt="Weekend Staycations" className="event-img" />
                     </div>
                     <div className="event-card-body">
                       <h3 className="event-card-title">Weekend Staycations</h3>
@@ -935,6 +973,82 @@ export default function App() {
                     </div>
                   </div>
                 </div>
+              </section>
+
+              {/* Why Choose Parthos Chalet Section */}
+              <section className="why-choose-section" style={{ padding: "80px 8%", backgroundColor: "#f9fcfb", textAlign: "center", borderTop: "1px solid var(--border-color)", borderBottom: "1px solid var(--border-color)" }}>
+                <span className="eyebrow" style={{ display: "block", marginBottom: "10px" }}>WHY GUESTS LOVE STAYING HERE</span>
+                <h2 className="section-headline" style={{ marginBottom: "50px", textAlign: "center" }}>Why Choose Parthos Chalet</h2>
+                <div className="why-choose-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "25px" }}>
+                  <div className="why-item" style={{ background: "white", padding: "24px", borderRadius: "4px", boxShadow: "0 4px 10px rgba(0,0,0,0.02)", display: "flex", alignItems: "flex-start", gap: "15px", textAlign: "left" }}>
+                    <span style={{ fontSize: "20px", color: "#ff8800" }}>✔</span>
+                    <div>
+                      <h4 style={{ margin: "0 0 5px 0", fontSize: "16px", fontWeight: 700 }}>Private Villa Experience</h4>
+                      <p style={{ margin: 0, fontSize: "13px", color: "var(--text-gray)" }}>Complete absolute privacy for your group with exclusive farm stay access.</p>
+                    </div>
+                  </div>
+                  <div className="why-item" style={{ background: "white", padding: "24px", borderRadius: "4px", boxShadow: "0 4px 10px rgba(0,0,0,0.02)", display: "flex", alignItems: "flex-start", gap: "15px", textAlign: "left" }}>
+                    <span style={{ fontSize: "20px", color: "#ff8800" }}>✔</span>
+                    <div>
+                      <h4 style={{ margin: "0 0 5px 0", fontSize: "16px", fontWeight: 700 }}>Large Landscaped Lawn</h4>
+                      <p style={{ margin: 0, fontSize: "13px", color: "var(--text-gray)" }}>Spacious manicured gardens for games, activities, and hosting celebrations.</p>
+                    </div>
+                  </div>
+                  <div className="why-item" style={{ background: "white", padding: "24px", borderRadius: "4px", boxShadow: "0 4px 10px rgba(0,0,0,0.02)", display: "flex", alignItems: "flex-start", gap: "15px", textAlign: "left" }}>
+                    <span style={{ fontSize: "20px", color: "#ff8800" }}>✔</span>
+                    <div>
+                      <h4 style={{ margin: "0 0 5px 0", fontSize: "16px", fontWeight: 700 }}>Infinity Swimming Pool</h4>
+                      <p style={{ margin: 0, fontSize: "13px", color: "var(--text-gray)" }}>A clean, beautifully designed private pool overlooking natural green views.</p>
+                    </div>
+                  </div>
+                  <div className="why-item" style={{ background: "white", padding: "24px", borderRadius: "4px", boxShadow: "0 4px 10px rgba(0,0,0,0.02)", display: "flex", alignItems: "flex-start", gap: "15px", textAlign: "left" }}>
+                    <span style={{ fontSize: "20px", color: "#ff8800" }}>✔</span>
+                    <div>
+                      <h4 style={{ margin: "0 0 5px 0", fontSize: "16px", fontWeight: 700 }}>Peaceful Surroundings</h4>
+                      <p style={{ margin: 0, fontSize: "13px", color: "var(--text-gray)" }}>Surrounded by nature and serene agricultural landscapes.</p>
+                    </div>
+                  </div>
+                  <div className="why-item" style={{ background: "white", padding: "24px", borderRadius: "4px", boxShadow: "0 4px 10px rgba(0,0,0,0.02)", display: "flex", alignItems: "flex-start", gap: "15px", textAlign: "left" }}>
+                    <span style={{ fontSize: "20px", color: "#ff8800" }}>✔</span>
+                    <div>
+                      <h4 style={{ margin: "0 0 5px 0", fontSize: "16px", fontWeight: 700 }}>Ideal for Families</h4>
+                      <p style={{ margin: 0, fontSize: "13px", color: "var(--text-gray)" }}>The perfect setup to enjoy peaceful weekends with relatives and kids.</p>
+                    </div>
+                  </div>
+                  <div className="why-item" style={{ background: "white", padding: "24px", borderRadius: "4px", boxShadow: "0 4px 10px rgba(0,0,0,0.02)", display: "flex", alignItems: "flex-start", gap: "15px", textAlign: "left" }}>
+                    <span style={{ fontSize: "20px", color: "#ff8800" }}>✔</span>
+                    <div>
+                      <h4 style={{ margin: "0 0 5px 0", fontSize: "16px", fontWeight: 700 }}>Hyderabad Weekend Escape</h4>
+                      <p style={{ margin: 0, fontSize: "13px", color: "var(--text-gray)" }}>Convenient drive from ORR, Adibatla, and the main city areas.</p>
+                    </div>
+                  </div>
+                  <div className="why-item" style={{ background: "white", padding: "24px", borderRadius: "4px", boxShadow: "0 4px 10px rgba(0,0,0,0.02)", display: "flex", alignItems: "flex-start", gap: "15px", textAlign: "left" }}>
+                    <span style={{ fontSize: "20px", color: "#ff8800" }}>✔</span>
+                    <div>
+                      <h4 style={{ margin: "0 0 5px 0", fontSize: "16px", fontWeight: 700 }}>Outdoor Seating Areas</h4>
+                      <p style={{ margin: 0, fontSize: "13px", color: "var(--text-gray)" }}>Cosy garden setups and terraces for dining and starry nights.</p>
+                    </div>
+                  </div>
+                  <div className="why-item" style={{ background: "white", padding: "24px", borderRadius: "4px", boxShadow: "0 4px 10px rgba(0,0,0,0.02)", display: "flex", alignItems: "flex-start", gap: "15px", textAlign: "left" }}>
+                    <span style={{ fontSize: "20px", color: "#ff8800" }}>✔</span>
+                    <div>
+                      <h4 style={{ margin: "0 0 5px 0", fontSize: "16px", fontWeight: 700 }}>Sunset Views</h4>
+                      <p style={{ margin: 0, fontSize: "13px", color: "var(--text-gray)" }}>Stunning unobstructed twilight skyline views over the private property.</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Nearby Section */}
+              <section className="nearby-section" style={{ padding: "80px 8% 100px", background: "linear-gradient(rgba(15,26,25,0.95), rgba(15,26,25,0.95)), url('/assets/hero_bg.png') no-repeat center/cover", color: "white", textAlign: "center" }}>
+                <span className="eyebrow" style={{ display: "block", marginBottom: "10px", color: "var(--primary-gold)" }}>CONVENIENTLY LOCATED</span>
+                <h2 className="section-headline" style={{ color: "white", textAlign: "center", marginBottom: "20px" }}>Close To The City. Far From The Noise.</h2>
+                <p style={{ maxWidth: "700px", margin: "0 auto 15px", lineHeight: "1.7", color: "rgba(255,255,255,0.85)" }}>
+                  Parthos Chalet offers the perfect countryside escape while remaining easily accessible from Hyderabad, Adibatla, and the airport corridor.
+                </p>
+                <p style={{ maxWidth: "700px", margin: "0 auto", lineHeight: "1.7", color: "rgba(255,255,255,0.8)" }}>
+                  Enjoy the tranquility of nature without spending hours travelling.
+                </p>
               </section>
 
               {/* Testimonials Slider */}
@@ -1179,11 +1293,11 @@ export default function App() {
             className="stay-section"
             style={{ background: "linear-gradient(to right, #0f1a19, #132221)", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", minHeight: "280px", gap: "20px", marginTop: currentPage !== "home" && currentPage !== "admin" ? "60px" : 0 }}
           >
-            <h2 className="stay-headline" style={{ fontSize: "38px", marginBottom: "0" }}>Ready for Your Perfect Escape?</h2>
+            <h2 className="stay-headline" style={{ fontSize: "38px", marginBottom: "0" }}>Ready For Your Next Escape?</h2>
             <p className="stay-text" style={{ maxWidth: "600px", margin: "0 auto", opacity: "0.8" }}>
-              Book your stay today and experience luxury, privacy, and comfort in the heart of nature.
+              Experience private luxury, open spaces, and unforgettable moments at Parthos Chalet.
             </p>
-            <button className="btn-gold btn-rooms" style={{ minWidth: "180px", height: "46px" }} onClick={() => { setShowBookingPopup(true); trackClick("Footer Booking Click", "Reserve Now clicked"); }}>Reserve Now</button>
+            <button className="btn-gold btn-rooms" style={{ minWidth: "180px", height: "46px" }} onClick={() => { setShowBookingPopup(true); trackClick("Footer Booking Click", "Reserve Now clicked"); }}>Reserve Your Stay Today</button>
           </section>
 
           {/* Footer Section */}
@@ -1194,7 +1308,7 @@ export default function App() {
                   <img src="/assets/logo.png" alt="Parthos Chalet Logo" className="logo-image-footer" />
                 </div>
                 <p className="footer-desc">
-                  Parthos Chalet Villa is a premium private retreat near Hyderabad, offering luxury accommodations, peaceful surroundings, and memorable experiences for families, couples, and groups.
+                  Parthos Chalet is a luxury farm stay near Hyderabad offering a private villa, infinity pool, expansive lawns, and peaceful countryside experiences for families, friends, and celebrations.
                 </p>
                 <div className="social-links">
                   <a href="#" className="social-link" aria-label="Instagram">
