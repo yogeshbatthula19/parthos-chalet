@@ -234,10 +234,32 @@ export default function App() {
 
     document.title = title;
     
-    const metaDescriptionTag = document.querySelector('meta[name="description"]');
-    if (metaDescriptionTag) {
-      metaDescriptionTag.setAttribute("content", description);
-    }
+    // Dynamic on-page SEO meta tag manager
+    const updateMetaTag = (attrType: "name" | "property", attrVal: string, contentVal: string) => {
+      const selector = `meta[${attrType}="${attrVal}"]`;
+      let tag = document.querySelector(selector);
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute(attrType, attrVal);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute("content", contentVal);
+    };
+
+    updateMetaTag("name", "description", description);
+    
+    // Open Graph (Facebook / WhatsApp / LinkedIn previews)
+    updateMetaTag("property", "og:title", title);
+    updateMetaTag("property", "og:description", description);
+    updateMetaTag("property", "og:type", "website");
+    updateMetaTag("property", "og:url", window.location.href);
+    updateMetaTag("property", "og:image", `${window.location.origin}/assets/main.jpg`);
+
+    // Twitter Card previews
+    updateMetaTag("name", "twitter:card", "summary_large_image");
+    updateMetaTag("name", "twitter:title", title);
+    updateMetaTag("name", "twitter:description", description);
+    updateMetaTag("name", "twitter:image", `${window.location.origin}/assets/main.jpg`);
   }, [currentPage]);
 
   // Sync state with storage & track page view count
