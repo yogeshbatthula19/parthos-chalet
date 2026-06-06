@@ -362,11 +362,12 @@ export default function App() {
     */
   };
 
-  // EmailJS configuration variables. Replace these with your actual keys from EmailJS Dashboard
-  const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
-  const EMAILJS_ADMIN_TEMPLATE_ID = "YOUR_ADMIN_TEMPLATE_ID";
-  const EMAILJS_CUSTOMER_TEMPLATE_ID = "YOUR_CUSTOMER_TEMPLATE_ID";
-  const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+  // EmailJS configuration variables. Configured with your active public key.
+  // Verify/change Service ID and Template IDs below to match your EmailJS Dashboard names.
+  const EMAILJS_SERVICE_ID = "service_default"; 
+  const EMAILJS_ADMIN_TEMPLATE_ID = "template_admin"; 
+  const EMAILJS_CUSTOMER_TEMPLATE_ID = "template_customer"; 
+  const EMAILJS_PUBLIC_KEY = "Ke0cBUm0LWOTx2ryG";
 
   const handleBookingSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
