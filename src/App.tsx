@@ -1212,9 +1212,7 @@ export default function App() {
                       <p className="room-desc-detail">{room.description}</p>
                       
                       <div className="room-specs">
-                        <span><strong>Guests:</strong> {room.guests}</span>
                         <span><strong>Size:</strong> {room.size}</span>
-                        <span><strong>Rate:</strong> {room.priceLabel}</span>
                       </div>
 
                       <div className="room-features-badges">
