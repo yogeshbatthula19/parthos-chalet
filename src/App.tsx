@@ -364,7 +364,7 @@ export default function App() {
 
   // EmailJS configuration variables. Configured with your active public key and service ID.
   const EMAILJS_SERVICE_ID = "service_q01yn3m"; 
-  const EMAILJS_ADMIN_TEMPLATE_ID = "template_admin"; 
+  const EMAILJS_ADMIN_TEMPLATE_ID = "template_l8g801m"; 
   const EMAILJS_CUSTOMER_TEMPLATE_ID = "template_zkxhqyb"; 
   const EMAILJS_PUBLIC_KEY = "Ke0cBUm0LWOTx2ryG";
 
