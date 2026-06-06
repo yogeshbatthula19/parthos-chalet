@@ -36,26 +36,45 @@
 
 .logo-container {
   display: flex;
-  flex-direction: column;
-  color: var(--text-light);
+  align-items: center;
   text-decoration: none;
   cursor: pointer;
 }
 
-.logo-main {
-  font-family: var(--font-serif);
-  font-size: 28px;
-  letter-spacing: 2px;
-  line-height: 1;
+.logo-image {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 4px 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: var(--transition-smooth);
 }
 
-.logo-sub {
-  font-family: var(--font-sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 4px;
-  opacity: 0.8;
-  margin-top: 2px;
+.header-nav.scrolled .logo-image {
+  height: 42px;
+  padding: 3px 8px;
+}
+
+.logo-image-mobile {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 3px 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo-image-footer {
+  height: 64px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 6px 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .nav-links {

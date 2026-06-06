@@ -664,8 +664,7 @@ export default function App() {
           {/* Header Navigation */}
           <header className={`header-nav ${isScrolled || currentPage !== "home" ? "scrolled" : ""}`}>
             <a className="logo-container" onClick={() => { navigateToPage("home"); setIsMobileMenuOpen(false); }}>
-              <div className="logo-main">PARTHOS</div>
-              <span className="logo-sub">CHALET VILLA</span>
+              <img src="/assets/logo.png" alt="Parthos Chalet Logo" className="logo-image" />
             </a>
 
             <nav className="nav-links">
@@ -704,8 +703,7 @@ export default function App() {
           <div className={`mobile-nav-drawer ${isMobileMenuOpen ? "open" : ""}`}>
             <div className="drawer-header">
               <a className="logo-container" onClick={() => { navigateToPage("home"); setIsMobileMenuOpen(false); }}>
-                <span className="logo-main" style={{ fontSize: "24px" }}>PARTHOS</span>
-                <span className="logo-sub" style={{ fontSize: "8px" }}>CHALET VILLA</span>
+                <img src="/assets/logo.png" alt="Parthos Chalet Logo" className="logo-image-mobile" />
               </a>
               <button className="drawer-close" onClick={() => setIsMobileMenuOpen(false)}>&times;</button>
             </div>
@@ -1192,8 +1190,9 @@ export default function App() {
           <footer className="footer-section">
             <div className="footer-top">
               <div className="footer-brand">
-                <h2 className="footer-logo">PARTHOS</h2>
-                <span className="footer-tagline">Chalet Villa</span>
+                <div className="logo-container" onClick={() => { navigateToPage("home"); }} style={{ marginBottom: "15px", display: "inline-block" }}>
+                  <img src="/assets/logo.png" alt="Parthos Chalet Logo" className="logo-image-footer" />
+                </div>
                 <p className="footer-desc">
                   Parthos Chalet Villa is a premium private retreat near Hyderabad, offering luxury accommodations, peaceful surroundings, and memorable experiences for families, couples, and groups.
                 </p>
