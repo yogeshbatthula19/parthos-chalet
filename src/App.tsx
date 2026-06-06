@@ -1299,11 +1299,11 @@ export default function App() {
                   <div className="footer-contact-info" style={{ gap: "24px" }}>
                     <div className="contact-item-block">
                       <span className="contact-key" style={{ fontSize: "12px" }}>Phone</span>
-                      <span className="contact-val" style={{ fontSize: "18px", fontWeight: 600 }}>+91 XXXXX XXXXX</span>
+                      <span className="contact-val" style={{ fontSize: "18px", fontWeight: 600 }}><a href="tel:+917569287138" style={{ color: "inherit", textDecoration: "none" }}>+91 75692 87138</a></span>
                     </div>
                     <div className="contact-item-block">
                       <span className="contact-key" style={{ fontSize: "12px" }}>Email</span>
-                      <span className="contact-val" style={{ fontSize: "18px", fontWeight: 600 }}>stay@parthoschaletvilla.com</span>
+                      <span className="contact-val" style={{ fontSize: "18px", fontWeight: 600 }}><a href="mailto:stay@parthoschalet.com" style={{ color: "inherit", textDecoration: "none" }}>stay@parthoschalet.com</a></span>
                     </div>
                     <div className="contact-item-block">
                       <span className="contact-key" style={{ fontSize: "12px" }}>Location</span>
@@ -1425,11 +1425,11 @@ export default function App() {
                 <h4 className="footer-col-title">Get in Touch</h4>
                 <div className="contact-item-block">
                   <span className="contact-key">Phone</span>
-                  <span className="contact-val">+91 XXXXX XXXXX</span>
+                  <span className="contact-val"><a href="tel:+917569287138" style={{ color: "inherit", textDecoration: "none" }}>+91 75692 87138</a></span>
                 </div>
                 <div className="contact-item-block">
                   <span className="contact-key">Email</span>
-                  <span className="contact-val">stay@parthoschaletvilla.com</span>
+                  <span className="contact-val"><a href="mailto:stay@parthoschalet.com" style={{ color: "inherit", textDecoration: "none" }}>stay@parthoschalet.com</a></span>
                 </div>
                 <div className="contact-item-block">
                   <span className="contact-key">Location</span>
