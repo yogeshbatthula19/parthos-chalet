@@ -137,6 +137,15 @@ interface ClickEvent {
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
+
+  // Helper to get today's date in YYYY-MM-DD for date-picker restrictions
+  const getTodayDateString = () => {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    return `${yyyy}-${mm}-${dd}`;
+  };
   
   // Resolve page view from current path for true URL routing and SEO
   const getPageFromPath = (path: string) => {
@@ -192,6 +201,50 @@ export default function App() {
     window.addEventListener("popstate", handleLocationChange);
     return () => window.removeEventListener("popstate", handleLocationChange);
   }, []);
+
+  // Dynamic Page Title & Meta Description update for One-Page SEO
+  useEffect(() => {
+    let title = "Parthos Chalet Villa | Luxury Private Farm Villa near Hyderabad";
+    let description = "Escape to Parthos Chalet Villa near Hyderabad (Kongara Kalan). Enjoy a premium private countryside getaway with a private infinity pool, luxury suites, and staycation amenities.";
+
+    switch (currentPage) {
+      case "home":
+        title = "Parthos Chalet Villa | Luxury Private Farm Villa near Hyderabad";
+        description = "Escape to Parthos Chalet Villa near Hyderabad (Kongara Kalan). Enjoy a premium private countryside getaway with a private infinity pool, luxury suites, and staycation amenities.";
+        break;
+      case "about":
+        title = "About Us | Parthos Chalet Villa Hyderabad";
+        description = "Discover our story. Parthos Chalet is an eco-friendly luxury private villa in Kongara Kalan, Hyderabad, blending nature with absolute comfort.";
+        break;
+      case "rooms":
+        title = "Stay & Luxury Suites | Parthos Chalet Villa";
+        description = "Explore our premium 1 BHK Luxury Villa and independent outside rooms. Book your private sanctuary with luxury amenities near Hyderabad.";
+        break;
+      case "experiences":
+        title = "Experiences & Private Events | Parthos Chalet Villa";
+        description = "Host poolside celebrations, family getaways, and weekend staycations at Parthos Chalet. Enjoy custom setups and personalized countryside hospitality.";
+        break;
+      case "gallery":
+        title = "Gallery | Photo Tour of Parthos Chalet Villa";
+        description = "View real pictures of our luxury infinity pool, farm rooms, premium interiors, and celebrations at Parthos Chalet Villa.";
+        break;
+      case "contact":
+        title = "Contact Us & Book | Parthos Chalet Villa";
+        description = "Get in touch with Parthos Chalet Villa. Plan your custom countryside getaway and reserve your dates today.";
+        break;
+      case "admin":
+        title = "Admin Dashboard | Parthos Chalet";
+        description = "Secure portal for booking log and reservation management.";
+        break;
+    }
+
+    document.title = title;
+    
+    const metaDescriptionTag = document.querySelector('meta[name="description"]');
+    if (metaDescriptionTag) {
+      metaDescriptionTag.setAttribute("content", description);
+    }
+  }, [currentPage]);
 
   // Sync state with storage & track page view count
   useEffect(() => {
@@ -552,28 +605,28 @@ export default function App() {
                     
                     <div className="form-group">
                       <label htmlFor="name">Full Name</label>
-                      <input type="text" id="name" name="name" required value={bookingForm.name} onChange={handleBookingChange} placeholder="Enter your name" />
+                      <input type="text" id="name" name="name" required value={bookingForm.name} onChange={handleBookingChange} placeholder="Enter your name" autoComplete="name" />
                     </div>
                     
                     <div className="form-row">
                       <div className="form-group">
                         <label htmlFor="email">Email Address</label>
-                        <input type="email" id="email" name="email" required value={bookingForm.email} onChange={handleBookingChange} placeholder="Enter email" />
+                        <input type="email" id="email" name="email" required value={bookingForm.email} onChange={handleBookingChange} placeholder="Enter email" autoComplete="email" />
                       </div>
                       <div className="form-group">
                         <label htmlFor="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" required value={bookingForm.phone} onChange={handleBookingChange} placeholder="Phone number" />
+                        <input type="tel" id="phone" name="phone" required value={bookingForm.phone} onChange={handleBookingChange} placeholder="Phone number" autoComplete="tel" />
                       </div>
                     </div>
 
                     <div className="form-row">
                       <div className="form-group">
                         <label htmlFor="checkIn">Check-In</label>
-                        <input type="date" id="checkIn" name="checkIn" required value={bookingForm.checkIn} onChange={handleBookingChange} />
+                        <input type="date" id="checkIn" name="checkIn" required value={bookingForm.checkIn} onChange={handleBookingChange} min={getTodayDateString()} />
                       </div>
                       <div className="form-group">
                         <label htmlFor="checkOut">Check-Out</label>
-                        <input type="date" id="checkOut" name="checkOut" required value={bookingForm.checkOut} onChange={handleBookingChange} />
+                        <input type="date" id="checkOut" name="checkOut" required value={bookingForm.checkOut} onChange={handleBookingChange} min={bookingForm.checkIn || getTodayDateString()} />
                       </div>
                     </div>
 
@@ -611,7 +664,7 @@ export default function App() {
           {/* Header Navigation */}
           <header className={`header-nav ${isScrolled || currentPage !== "home" ? "scrolled" : ""}`}>
             <a className="logo-container" onClick={() => { navigateToPage("home"); setIsMobileMenuOpen(false); }}>
-              <h1 className="logo-main">PARTHOS</h1>
+              <div className="logo-main">PARTHOS</div>
               <span className="logo-sub">CHALET VILLA</span>
             </a>
 
@@ -696,13 +749,13 @@ export default function App() {
                       <img src={slide.image} alt="Chalet Villa View" className="hero-image" />
                       <div className="hero-overlay" />
                       <div className="hero-content">
-                        <h2 className="hero-title">
+                        <h1 className="hero-title">
                           {slide.title.split("\n").map((line, i) => (
                             <span key={i} style={{ display: "block" }}>
                               {line}
                             </span>
                           ))}
-                        </h2>
+                        </h1>
                         <p className="hero-desc">{slide.description}</p>
                         <div className="hero-ctas">
                           <button className="btn-gold hero-btn" onClick={() => { setShowBookingPopup(true); trackClick("Hero Button Click", "Book Your Stay Clicked"); }}>Book Your Stay</button>
@@ -801,27 +854,18 @@ export default function App() {
                 <div className="experience-grid">
                   <div className="experience-card" onClick={() => navigateToPage("rooms")}>
                     <div className="card-img-wrapper">
-                      <img src="/assets/suite_royal.png" alt="Royal Suite" className="experience-img" />
+                      <img src="/assets/main.jpg" alt="1 BHK Luxury Villa" className="experience-img" />
                       <div className="card-overlay">
-                        <h3 className="card-title">Royal Master Suite</h3>
+                        <h3 className="card-title">1 BHK Luxury Villa</h3>
                       </div>
                     </div>
                   </div>
 
                   <div className="experience-card" onClick={() => navigateToPage("rooms")}>
                     <div className="card-img-wrapper">
-                      <img src="/assets/suite_pool.png" alt="Poolside Suite" className="experience-img" />
+                      <img src="/assets/new_rooms.jpg" alt="Independent Outside Rooms" className="experience-img" />
                       <div className="card-overlay">
-                        <h3 className="card-title">Poolside Suite</h3>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="experience-card" onClick={() => navigateToPage("rooms")}>
-                    <div className="card-img-wrapper">
-                      <img src="/assets/wellness_spa.png" alt="Wellness and Spa" className="experience-img" />
-                      <div className="card-overlay">
-                        <h3 className="card-title">Wellness &amp; Spa</h3>
+                        <h3 className="card-title">Independent Outside Rooms</h3>
                       </div>
                     </div>
                   </div>
@@ -932,7 +976,7 @@ export default function App() {
           {currentPage === "about" && (
             <div className="subpage-wrapper">
               <section className="subpage-hero" style={{ backgroundImage: "linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('/assets/about_living_room.png')" }}>
-                <h2>OUR STORY</h2>
+                <h1>OUR STORY</h1>
                 <p>Where wilderness meets absolute private luxury.</p>
               </section>
 
@@ -982,7 +1026,7 @@ export default function App() {
           {currentPage === "rooms" && (
             <div className="subpage-wrapper">
               <section className="subpage-hero" style={{ backgroundImage: "linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('/assets/suite_royal.png')" }}>
-                <h2>LUXURY SUITES</h2>
+                <h1>LUXURY SUITES</h1>
                 <p>Thoughtfully curated spaces built for absolute comfort.</p>
               </section>
 
@@ -1024,7 +1068,7 @@ export default function App() {
           {currentPage === "experiences" && (
             <div className="subpage-wrapper">
               <section className="subpage-hero" style={{ backgroundImage: "linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('/assets/event_winter_ceremony.png')" }}>
-                <h2>VILLA EXPERIENCES</h2>
+                <h1>VILLA EXPERIENCES</h1>
                 <p>Tailored moments to relax, connect, and celebrate.</p>
               </section>
 
@@ -1049,7 +1093,7 @@ export default function App() {
           {currentPage === "gallery" && (
             <div className="subpage-wrapper">
               <section className="subpage-hero" style={{ backgroundImage: "linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('/assets/event_chef_table.png')" }}>
-                <h2>VILLA GALLERY</h2>
+                <h1>VILLA GALLERY</h1>
                 <p>Take a visual journey through Parthos Chalet Villa.</p>
               </section>
 
@@ -1070,7 +1114,7 @@ export default function App() {
           {currentPage === "contact" && (
             <div className="subpage-wrapper">
               <section className="subpage-hero" style={{ backgroundImage: "linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('/assets/hero_bg.png')" }}>
-                <h2>GET IN TOUCH</h2>
+                <h1>GET IN TOUCH</h1>
                 <p>Plan your custom countryside escape with us today.</p>
               </section>
 
@@ -1104,12 +1148,12 @@ export default function App() {
                       
                       <div className="form-group">
                         <label htmlFor="c-name">Full Name</label>
-                        <input type="text" id="c-name" required value={contactForm.name} onChange={(e) => setContactForm(prev => ({ ...prev, name: e.target.value }))} placeholder="Your name" style={{ width: "100%", padding: "12px", border: "1px solid var(--border-color)", borderRadius: "4px" }} />
+                        <input type="text" id="c-name" required value={contactForm.name} onChange={(e) => setContactForm(prev => ({ ...prev, name: e.target.value }))} placeholder="Your name" autoComplete="name" style={{ width: "100%", padding: "12px", border: "1px solid var(--border-color)", borderRadius: "4px" }} />
                       </div>
                       
                       <div className="form-group">
                         <label htmlFor="c-email">Email Address</label>
-                        <input type="email" id="c-email" required value={contactForm.email} onChange={(e) => setContactForm(prev => ({ ...prev, email: e.target.value }))} placeholder="Your email" style={{ width: "100%", padding: "12px", border: "1px solid var(--border-color)", borderRadius: "4px" }} />
+                        <input type="email" id="c-email" required value={contactForm.email} onChange={(e) => setContactForm(prev => ({ ...prev, email: e.target.value }))} placeholder="Your email" autoComplete="email" style={{ width: "100%", padding: "12px", border: "1px solid var(--border-color)", borderRadius: "4px" }} />
                       </div>
 
                       <div className="form-group">
