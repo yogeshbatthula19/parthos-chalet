@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useIntersectionObserver } from "./hooks/useIntersectionObserver";
+import emailjs from "@emailjs/browser";
 import "./App.css";
 
 // Slides data for Hero Carousel
@@ -361,6 +362,12 @@ export default function App() {
     */
   };
 
+  // EmailJS configuration variables. Replace these with your actual keys from EmailJS Dashboard
+  const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
+  const EMAILJS_ADMIN_TEMPLATE_ID = "YOUR_ADMIN_TEMPLATE_ID";
+  const EMAILJS_CUSTOMER_TEMPLATE_ID = "YOUR_CUSTOMER_TEMPLATE_ID";
+  const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+
   const handleBookingSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -380,6 +387,41 @@ export default function App() {
 
     // Call placeholder for Firebase
     await saveToFirebase("bookings", newBooking);
+
+    // Trigger EmailJS notifications
+    try {
+      const emailParams = {
+        name: bookingForm.name,
+        email: bookingForm.email,
+        phone: bookingForm.phone,
+        checkIn: bookingForm.checkIn,
+        checkOut: bookingForm.checkOut,
+        guests: bookingForm.guests,
+        roomPreference: VILLA_ROOMS.find(r => r.id === bookingForm.roomPreference)?.name || bookingForm.roomPreference,
+        submittedAt: newBooking.submittedAt,
+        page: activePage
+      };
+
+      // 1. Send reservation alert to stay@parthoschalet.com (configured in Template A)
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_ADMIN_TEMPLATE_ID,
+        emailParams,
+        EMAILJS_PUBLIC_KEY
+      );
+
+      // 2. Send confirmation to the customer (configured in Template B)
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_CUSTOMER_TEMPLATE_ID,
+        emailParams,
+        EMAILJS_PUBLIC_KEY
+      );
+      
+      console.log("Booking emails sent successfully.");
+    } catch (error) {
+      console.error("Failed to send booking emails:", error);
+    }
 
     setBookingConfirmed(true);
     setTimeout(() => {
@@ -415,6 +457,37 @@ export default function App() {
 
     // Call placeholder for Firebase
     await saveToFirebase("inquiries", newInquiry);
+
+    // Trigger EmailJS notifications
+    try {
+      const emailParams = {
+        name: contactForm.name,
+        email: contactForm.email,
+        message: contactForm.message,
+        submittedAt: newInquiry.submittedAt,
+        page: activePage
+      };
+
+      // 1. Send alert to stay@parthoschalet.com (Template A)
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_ADMIN_TEMPLATE_ID,
+        emailParams,
+        EMAILJS_PUBLIC_KEY
+      );
+
+      // 2. Send confirmation to the customer (Template B)
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_CUSTOMER_TEMPLATE_ID,
+        emailParams,
+        EMAILJS_PUBLIC_KEY
+      );
+
+      console.log("Contact emails sent successfully.");
+    } catch (error) {
+      console.error("Failed to send contact emails:", error);
+    }
 
     setContactSubmitted(true);
     setContactForm({ name: "", email: "", message: "" });
