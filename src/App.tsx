@@ -1211,10 +1211,6 @@ export default function App() {
                       <h3 className="room-name">{room.name}</h3>
                       <p className="room-desc-detail">{room.description}</p>
                       
-                      <div className="room-specs">
-                        <span><strong>Size:</strong> {room.size}</span>
-                      </div>
-
                       <div className="room-features-badges">
                         {room.amenities.map((item, i) => (
                           <span key={i} className="amenity-badge">{item}</span>
