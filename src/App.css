@@ -42,24 +42,24 @@
 }
 
 .logo-image {
-  height: 60px;
+  height: 72px;
   width: auto;
   object-fit: contain;
   transition: var(--transition-smooth);
 }
 
 .header-nav.scrolled .logo-image {
-  height: 50px;
+  height: 58px;
 }
 
 .logo-image-mobile {
-  height: 48px;
+  height: 56px;
   width: auto;
   object-fit: contain;
 }
 
 .logo-image-footer {
-  height: 80px;
+  height: 100px;
   width: auto;
   object-fit: contain;
 }
