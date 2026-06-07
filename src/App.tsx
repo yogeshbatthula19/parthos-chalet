@@ -739,7 +739,7 @@ export default function App() {
           {/* Header Navigation */}
           <header className={`header-nav ${isScrolled || currentPage !== "home" ? "scrolled" : ""}`}>
             <a className="logo-container" onClick={() => { navigateToPage("home"); setIsMobileMenuOpen(false); }}>
-              <img src="/assets/logo.png" alt="Parthos Chalet Logo" className="logo-image" />
+              <img src="/assets/Logo.svg" alt="Parthos Chalet Logo" className="logo-image" />
             </a>
 
             <nav className="nav-links">
@@ -778,7 +778,7 @@ export default function App() {
           <div className={`mobile-nav-drawer ${isMobileMenuOpen ? "open" : ""}`}>
             <div className="drawer-header">
               <a className="logo-container" onClick={() => { navigateToPage("home"); setIsMobileMenuOpen(false); }}>
-                <img src="/assets/logo.png" alt="Parthos Chalet Logo" className="logo-image-mobile" />
+                <img src="/assets/Logo.svg" alt="Parthos Chalet Logo" className="logo-image-mobile" />
               </a>
               <button className="drawer-close" onClick={() => setIsMobileMenuOpen(false)}>&times;</button>
             </div>
@@ -1402,7 +1402,7 @@ export default function App() {
             <div className="footer-top">
               <div className="footer-brand">
                 <div className="logo-container" onClick={() => { navigateToPage("home"); }} style={{ marginBottom: "15px", display: "inline-block" }}>
-                  <img src="/assets/logo.png" alt="Parthos Chalet Logo" className="logo-image-footer" />
+                  <img src="/assets/Logo.svg" alt="Parthos Chalet Logo" className="logo-image-footer" />
                 </div>
                 <p className="footer-desc">
                   Parthos Chalet is a luxury farm stay near Hyderabad offering a private villa, infinity pool, expansive lawns, and peaceful countryside experiences for families, friends, and celebrations.
