@@ -1062,56 +1062,72 @@ export default function App() {
                 <h2 className="section-headline" style={{ marginBottom: "50px", textAlign: "center" }}>Why Choose Parthos Chalet</h2>
                 <div className="why-choose-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "25px" }}>
                   <div className="why-item" style={{ background: "white", padding: "24px", borderRadius: "4px", boxShadow: "0 4px 10px rgba(0,0,0,0.02)", display: "flex", alignItems: "flex-start", gap: "15px", textAlign: "left" }}>
-                    <span style={{ fontSize: "20px", color: "#ff8800" }}>✔</span>
+                    <div style={{ flexShrink: 0, marginTop: "2px" }}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff8800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    </div>
                     <div>
                       <h4 style={{ margin: "0 0 5px 0", fontSize: "16px", fontWeight: 700 }}>Private Villa Experience</h4>
                       <p style={{ margin: 0, fontSize: "13px", color: "var(--text-gray)" }}>Complete absolute privacy for your group with exclusive farm stay access.</p>
                     </div>
                   </div>
                   <div className="why-item" style={{ background: "white", padding: "24px", borderRadius: "4px", boxShadow: "0 4px 10px rgba(0,0,0,0.02)", display: "flex", alignItems: "flex-start", gap: "15px", textAlign: "left" }}>
-                    <span style={{ fontSize: "20px", color: "#ff8800" }}>✔</span>
+                    <div style={{ flexShrink: 0, marginTop: "2px" }}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff8800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a15 15 0 0 0-8.197 2.372c-.417.276-.233.923.272.935A15.002 15.002 0 0 1 12 18a15.002 15.002 0 0 1 7.925-12.693c.505-.012.69.659.272.935A15 15 0 0 0 12 2Z"/><path d="M12 18v4"/></svg>
+                    </div>
                     <div>
                       <h4 style={{ margin: "0 0 5px 0", fontSize: "16px", fontWeight: 700 }}>Large Landscaped Lawn</h4>
                       <p style={{ margin: 0, fontSize: "13px", color: "var(--text-gray)" }}>Spacious manicured gardens for games, activities, and hosting celebrations.</p>
                     </div>
                   </div>
                   <div className="why-item" style={{ background: "white", padding: "24px", borderRadius: "4px", boxShadow: "0 4px 10px rgba(0,0,0,0.02)", display: "flex", alignItems: "flex-start", gap: "15px", textAlign: "left" }}>
-                    <span style={{ fontSize: "20px", color: "#ff8800" }}>✔</span>
+                    <div style={{ flexShrink: 0, marginTop: "2px" }}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff8800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c.6.5 1.2 1 2.5 1C6 7 7 6 8.5 6c1.5 0 2.5 1 4 1 1.3 0 1.9-.5 2.5-1"/><path d="M2 12c.6.5 1.2 1 2.5 1 1.5 0 2.5-1 4-1 1.5 0 2.5 1 4 1 1.3 0 1.9-.5 2.5-1"/><path d="M2 18c.6.5 1.2 1 2.5 1 1.5 0 2.5-1 4-1 1.5 0 2.5 1 4 1 1.3 0 1.9-.5 2.5-1"/></svg>
+                    </div>
                     <div>
                       <h4 style={{ margin: "0 0 5px 0", fontSize: "16px", fontWeight: 700 }}>Infinity Swimming Pool</h4>
                       <p style={{ margin: 0, fontSize: "13px", color: "var(--text-gray)" }}>A clean, beautifully designed private pool overlooking natural green views.</p>
                     </div>
                   </div>
                   <div className="why-item" style={{ background: "white", padding: "24px", borderRadius: "4px", boxShadow: "0 4px 10px rgba(0,0,0,0.02)", display: "flex", alignItems: "flex-start", gap: "15px", textAlign: "left" }}>
-                    <span style={{ fontSize: "20px", color: "#ff8800" }}>✔</span>
+                    <div style={{ flexShrink: 0, marginTop: "2px" }}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff8800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M2 12h20"/><path d="M12 2v20"/></svg>
+                    </div>
                     <div>
                       <h4 style={{ margin: "0 0 5px 0", fontSize: "16px", fontWeight: 700 }}>Peaceful Surroundings</h4>
                       <p style={{ margin: 0, fontSize: "13px", color: "var(--text-gray)" }}>Surrounded by nature and serene agricultural landscapes.</p>
                     </div>
                   </div>
                   <div className="why-item" style={{ background: "white", padding: "24px", borderRadius: "4px", boxShadow: "0 4px 10px rgba(0,0,0,0.02)", display: "flex", alignItems: "flex-start", gap: "15px", textAlign: "left" }}>
-                    <span style={{ fontSize: "20px", color: "#ff8800" }}>✔</span>
+                    <div style={{ flexShrink: 0, marginTop: "2px" }}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff8800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
                     <div>
                       <h4 style={{ margin: "0 0 5px 0", fontSize: "16px", fontWeight: 700 }}>Ideal for Families</h4>
                       <p style={{ margin: 0, fontSize: "13px", color: "var(--text-gray)" }}>The perfect setup to enjoy peaceful weekends with relatives and kids.</p>
                     </div>
                   </div>
                   <div className="why-item" style={{ background: "white", padding: "24px", borderRadius: "4px", boxShadow: "0 4px 10px rgba(0,0,0,0.02)", display: "flex", alignItems: "flex-start", gap: "15px", textAlign: "left" }}>
-                    <span style={{ fontSize: "20px", color: "#ff8800" }}>✔</span>
+                    <div style={{ flexShrink: 0, marginTop: "2px" }}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff8800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2" ry="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                    </div>
                     <div>
                       <h4 style={{ margin: "0 0 5px 0", fontSize: "16px", fontWeight: 700 }}>Hyderabad Weekend Escape</h4>
                       <p style={{ margin: 0, fontSize: "13px", color: "var(--text-gray)" }}>Convenient drive from ORR, Adibatla, and the main city areas.</p>
                     </div>
                   </div>
                   <div className="why-item" style={{ background: "white", padding: "24px", borderRadius: "4px", boxShadow: "0 4px 10px rgba(0,0,0,0.02)", display: "flex", alignItems: "flex-start", gap: "15px", textAlign: "left" }}>
-                    <span style={{ fontSize: "20px", color: "#ff8800" }}>✔</span>
+                    <div style={{ flexShrink: 0, marginTop: "2px" }}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff8800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 10H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2z"/><path d="M5 10V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4"/><path d="M12 10v10"/></svg>
+                    </div>
                     <div>
                       <h4 style={{ margin: "0 0 5px 0", fontSize: "16px", fontWeight: 700 }}>Outdoor Seating Areas</h4>
                       <p style={{ margin: 0, fontSize: "13px", color: "var(--text-gray)" }}>Cosy garden setups and terraces for dining and starry nights.</p>
                     </div>
                   </div>
                   <div className="why-item" style={{ background: "white", padding: "24px", borderRadius: "4px", boxShadow: "0 4px 10px rgba(0,0,0,0.02)", display: "flex", alignItems: "flex-start", gap: "15px", textAlign: "left" }}>
-                    <span style={{ fontSize: "20px", color: "#ff8800" }}>✔</span>
+                    <div style={{ flexShrink: 0, marginTop: "2px" }}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff8800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    </div>
                     <div>
                       <h4 style={{ margin: "0 0 5px 0", fontSize: "16px", fontWeight: 700 }}>Sunset Views</h4>
                       <p style={{ margin: 0, fontSize: "13px", color: "var(--text-gray)" }}>Stunning unobstructed twilight skyline views over the private property.</p>
