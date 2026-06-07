@@ -1,0 +1,11 @@
+# Crawling rules for search engine bots (Googlebot, Bingbot, etc.)
+User-agent: *
+
+# Allow search engines to index everything
+Allow: /
+
+# Disallow indexing of the secure admin dashboard
+Disallow: /admin
+
+# Point to sitemap.xml
+Sitemap: https://parthoschalet.com/sitemap.xml
