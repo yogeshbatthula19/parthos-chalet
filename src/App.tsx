@@ -819,7 +819,13 @@ export default function App() {
                 <div className="hero-slider">
                   {HERO_SLIDES.map((slide, index) => (
                     <div key={index} className={`hero-slide ${index === activeSlide ? "active" : ""}`}>
-                      <img src={slide.image} alt="Chalet Villa View" className="hero-image" />
+                      <img 
+                        src={slide.image} 
+                        alt="Chalet Villa View" 
+                        className="hero-image" 
+                        fetchPriority={index === 0 ? "high" : "low"}
+                        loading={index === 0 ? "eager" : "lazy"} 
+                      />
                       <div className="hero-overlay" />
                       <div className="hero-content">
                         {index === 0 && (
@@ -903,7 +909,7 @@ export default function App() {
                 className={`about-section reveal-element ${aboutVisible ? "revealed" : ""}`}
               >
                 <div className="about-image-container">
-                  <img src="/assets/about_living_room.png" alt="Living Room" className="about-image" />
+                  <img src="/assets/about_living_room.png" alt="Living Room" className="about-image" loading="lazy" />
                 </div>
                 <div className="about-content">
                   <span className="eyebrow">ABOUT PARTHOS CHALET</span>
@@ -955,7 +961,7 @@ export default function App() {
                 <div className="experience-grid">
                   <div className="experience-card" onClick={() => navigateToPage("rooms")}>
                     <div className="card-img-wrapper">
-                      <img src="/assets/main.jpg" alt="1 BHK Luxury Villa" className="experience-img" />
+                      <img src="/assets/main.jpg" alt="1 BHK Luxury Villa" className="experience-img" loading="lazy" />
                       <div className="card-overlay">
                         <h3 className="card-title">1 BHK Luxury Villa</h3>
                       </div>
@@ -964,7 +970,7 @@ export default function App() {
 
                   <div className="experience-card" onClick={() => navigateToPage("rooms")}>
                     <div className="card-img-wrapper">
-                      <img src="/assets/new_rooms.jpg" alt="Independent Outside Rooms" className="experience-img" />
+                      <img src="/assets/new_rooms.jpg" alt="Independent Outside Rooms" className="experience-img" loading="lazy" />
                       <div className="card-overlay">
                         <h3 className="card-title">Independent Outside Rooms</h3>
                       </div>
@@ -1026,7 +1032,7 @@ export default function App() {
                 <div className="events-grid">
                   <div className="event-card" onClick={() => navigateToPage("experiences")}>
                     <div className="event-img-wrapper">
-                      <img src="/assets/kitty.jpg" alt="Family Getaways" className="event-img" />
+                      <img src="/assets/kitty.jpg" alt="Family Getaways" className="event-img" loading="lazy" />
                     </div>
                     <div className="event-card-body">
                       <h3 className="event-card-title">Family Getaways</h3>
@@ -1036,7 +1042,7 @@ export default function App() {
 
                   <div className="event-card" onClick={() => navigateToPage("experiences")}>
                     <div className="event-img-wrapper">
-                      <img src="/assets/swimming.jpg" alt="Poolside Celebrations" className="event-img" />
+                      <img src="/assets/swimming.jpg" alt="Poolside Celebrations" className="event-img" loading="lazy" />
                     </div>
                     <div className="event-card-body">
                       <h3 className="event-card-title">Poolside Celebrations</h3>
@@ -1046,7 +1052,7 @@ export default function App() {
 
                   <div className="event-card" onClick={() => navigateToPage("experiences")}>
                     <div className="event-img-wrapper">
-                      <img src="/assets/candle.jpg" alt="Weekend Staycations" className="event-img" />
+                      <img src="/assets/candle.jpg" alt="Weekend Staycations" className="event-img" loading="lazy" />
                     </div>
                     <div className="event-card-body">
                       <h3 className="event-card-title">Weekend Staycations</h3>
@@ -1191,7 +1197,7 @@ export default function App() {
 
               <section className="about-section" style={{ padding: "80px 8% 40px" }}>
                 <div className="about-image-container">
-                  <img src="/assets/about_living_room.png" alt="Living Room" className="about-image" />
+                  <img src="/assets/about_living_room.png" alt="Living Room" className="about-image" loading="lazy" />
                 </div>
                 <div className="about-content">
                   <span className="eyebrow">ABOUT PARTHOS</span>
@@ -1225,7 +1231,7 @@ export default function App() {
                   </div>
                 </div>
                 <div className="about-image-container">
-                  <img src="/assets/wellness_spa.png" alt="Villa Estate View" className="about-image" />
+                  <img src="/assets/wellness_spa.png" alt="Villa Estate View" className="about-image" loading="lazy" />
                 </div>
               </section>
             </div>
@@ -1243,7 +1249,7 @@ export default function App() {
                 {VILLA_ROOMS.map((room, idx) => (
                   <div key={room.id} className="room-detail-card" style={{ direction: idx % 2 === 1 ? "rtl" : "ltr" }}>
                     <div className="room-card-image">
-                      <img src={room.image} alt={room.name} />
+                      <img src={room.image} alt={room.name} loading="lazy" />
                     </div>
                     <div className="room-card-info" style={{ direction: "ltr" }}>
                       <h3 className="room-name">{room.name}</h3>
