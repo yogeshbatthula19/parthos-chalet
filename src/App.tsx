@@ -97,7 +97,7 @@ const GALLERY_IMAGES = [
   { src: "/assets/haldi_2.jpg", tag: "Celebrations" },
   { src: "/assets/candle.jpg", tag: "Dining" },
   { src: "/assets/kitty.jpg", tag: "Gatherings" },
-  { src: "/assets/about_living_room.png", tag: "Interiors" },
+  { src: "/assets/about.png", tag: "Interiors" },
   { src: "/assets/fine_dining.png", tag: "Dining" }
 ];
 
@@ -909,7 +909,7 @@ export default function App() {
                 className={`about-section reveal-element ${aboutVisible ? "revealed" : ""}`}
               >
                 <div className="about-image-container">
-                  <img src="/assets/about_living_room.png" alt="Living Room" className="about-image" loading="lazy" />
+                  <img src="/assets/about.png" alt="Living Room" className="about-image" loading="lazy" />
                 </div>
                 <div className="about-content">
                   <span className="eyebrow">ABOUT PARTHOS CHALET</span>
@@ -1190,14 +1190,14 @@ export default function App() {
           {/* DEDICATED ABOUT PAGE */}
           {currentPage === "about" && (
             <div className="subpage-wrapper">
-              <section className="subpage-hero" style={{ backgroundImage: "linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('/assets/about_living_room.png')" }}>
+              <section className="subpage-hero" style={{ backgroundImage: "linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('/assets/about.png')" }}>
                 <h1>OUR STORY</h1>
                 <p>Where wilderness meets absolute private luxury.</p>
               </section>
 
               <section className="about-section" style={{ padding: "80px 8% 40px" }}>
                 <div className="about-image-container">
-                  <img src="/assets/about_living_room.png" alt="Living Room" className="about-image" loading="lazy" />
+                  <img src="/assets/about.png" alt="Living Room" className="about-image" loading="lazy" />
                 </div>
                 <div className="about-content">
                   <span className="eyebrow">ABOUT PARTHOS</span>
