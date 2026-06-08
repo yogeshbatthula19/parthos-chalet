@@ -716,20 +716,13 @@ export default function App() {
                     </div>
 
                     <div className="form-row">
-                      <div className="form-group">
+                      <div className="form-group" style={{ width: "100%" }}>
                         <label htmlFor="guests">Number of Guests</label>
                         <select id="guests" name="guests" value={bookingForm.guests} onChange={handleBookingChange}>
                           <option value="1-4 Guests">1-4 Guests</option>
                           <option value="5-8 Guests">5-8 Guests</option>
                           <option value="9-12 Guests">9-12 Guests</option>
                           <option value="12+ Guests">12+ Guests</option>
-                        </select>
-                      </div>
-                      <div className="form-group">
-                        <label htmlFor="roomPreference">Allocated Accommodation</label>
-                        <select id="roomPreference" name="roomPreference" value={bookingForm.roomPreference} disabled style={{ opacity: 0.95, cursor: "not-allowed", backgroundColor: "#f9f9f9" }}>
-                          <option value="one-bhk-villa">Canadian Wooden Villa (Entire Villa)</option>
-                          <option value="outside-rooms">Villa + Studios (Entire Estate)</option>
                         </select>
                       </div>
                     </div>
@@ -740,7 +733,7 @@ export default function App() {
                   <div className="booking-success-message">
                     <div className="success-icon">✓</div>
                     <h3>Reservation Requested!</h3>
-                    <p>Thank you, {bookingForm.name}. We will review your preference for the <strong>{VILLA_ROOMS.find(r => r.id === bookingForm.roomPreference)?.name}</strong> and contact you within 2 hours to confirm availability.</p>
+                    <p>Thank you, {bookingForm.name}. We will review your booking request for <strong>{bookingForm.guests}</strong> and contact you within 2 hours to confirm availability.</p>
                   </div>
                 )}
               </div>
