@@ -68,7 +68,7 @@ const EXPERIENCES_LIST = [
   {
     title: "Family Getaways",
     image: "/assets/kitty.jpg",
-    desc: "Create precious family memories in spacious lounges and private yards. Ideal for bonding, indoor games, and dining together away from the rush."
+    desc: "Create precious family memories in spacious lounges and private yards. Ideal for bonding, indoor games, and sharing meals together away from the rush."
   },
   {
     title: "Poolside Celebrations",
@@ -95,10 +95,10 @@ const GALLERY_IMAGES = [
   { src: "/assets/new_rooms.jpg", tag: "Suites" },
   { src: "/assets/haldi.jpg", tag: "Celebrations" },
   { src: "/assets/haldi_2.jpg", tag: "Celebrations" },
-  { src: "/assets/candle.jpg", tag: "Dining" },
+  { src: "/assets/candle.jpg", tag: "Experiences" },
   { src: "/assets/kitty.jpg", tag: "Gatherings" },
   { src: "/assets/about.png", tag: "Interiors" },
-  { src: "/assets/fine_dining.png", tag: "Dining" }
+  { src: "/assets/fine_dining.png", tag: "Experiences" }
 ];
 
 interface Booking {
@@ -1127,7 +1127,7 @@ export default function App() {
                     </div>
                     <div>
                       <h4 style={{ margin: "0 0 5px 0", fontSize: "16px", fontWeight: 700 }}>Outdoor Seating Areas</h4>
-                      <p style={{ margin: 0, fontSize: "13px", color: "var(--text-gray)" }}>Cosy garden setups and terraces for dining and starry nights.</p>
+                      <p style={{ margin: 0, fontSize: "13px", color: "var(--text-gray)" }}>Cosy garden setups and terraces for relaxing and stargazing.</p>
                     </div>
                   </div>
                   <div className="why-item" style={{ background: "white", padding: "24px", borderRadius: "4px", boxShadow: "0 4px 10px rgba(0,0,0,0.02)", display: "flex", alignItems: "flex-start", gap: "15px", textAlign: "left" }}>
@@ -1446,12 +1446,6 @@ export default function App() {
                 <ul className="footer-links-list">
                   <li className="footer-link-item">
                     <a onClick={() => navigateToPage("rooms")}>Luxury Rooms</a>
-                  </li>
-                  <li className="footer-link-item">
-                    <a onClick={() => navigateToPage("rooms")}>Fine Dining</a>
-                  </li>
-                  <li className="footer-link-item">
-                    <a onClick={() => navigateToPage("rooms")}>Wellness &amp; Spa</a>
                   </li>
                   <li className="footer-link-item">
                     <a onClick={() => navigateToPage("experiences")}>Private Events</a>
