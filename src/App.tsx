@@ -724,6 +724,10 @@ export default function App() {
                         <input type="date" id="checkOut" name="checkOut" required value={bookingForm.checkOut} onChange={handleBookingChange} min={bookingForm.checkIn || getTodayDateString()} />
                       </div>
                     </div>
+                    <div style={{ fontSize: "11px", color: "var(--text-gray)", marginTop: "-10px", marginBottom: "15px", display: "flex", gap: "15px", fontFamily: "var(--font-sans)", letterSpacing: "0.2px" }}>
+                      <span>🔑 <strong>Check-In:</strong> 2:00 PM</span>
+                      <span>🚪 <strong>Check-Out:</strong> 11:00 AM</span>
+                    </div>
 
                     <div className="form-group">
                       <label htmlFor="guests">Number of Guests</label>
@@ -1508,6 +1512,13 @@ export default function App() {
                       Parthos Chalet Villa 📍
                       <span style={{ display: "block", fontSize: "11px", color: "var(--primary-gold)", marginTop: "2px", textDecoration: "underline" }}>Get Directions ➔</span>
                     </a>
+                  </span>
+                </div>
+                <div className="contact-item-block">
+                  <span className="contact-key">Timings</span>
+                  <span className="contact-val" style={{ fontSize: "13px" }}>
+                    Check-In: 2:00 PM <br />
+                    Check-Out: 11:00 AM
                   </span>
                 </div>
               </div>
