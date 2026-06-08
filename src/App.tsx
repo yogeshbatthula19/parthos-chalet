@@ -282,7 +282,7 @@ export default function App() {
     const timer = setTimeout(() => {
       setShowBookingPopup(true);
       trackClick("Modal Displayed", "Landing Booking Form Popup");
-    }, 1500);
+    }, 60000); // 1 minute
     return () => clearTimeout(timer);
   }, [currentPath]);
 
@@ -355,6 +355,16 @@ export default function App() {
       }
       return updated;
     });
+  };
+
+  const handleClosePopup = () => {
+    setShowBookingPopup(false);
+    setTimeout(() => {
+      if (window.location.pathname !== "/admin") {
+        setShowBookingPopup(true);
+        trackClick("Modal Displayed", "Landing Booking Form Popup (Re-show)");
+      }
+    }, 120000); // 2 minutes
   };
 
   // ==========================================
@@ -681,7 +691,7 @@ export default function App() {
           {showBookingPopup && (
             <div className="modal-backdrop">
               <div className="modal-card">
-                <button className="modal-close" onClick={() => setShowBookingPopup(false)}>&times;</button>
+                <button className="modal-close" onClick={handleClosePopup}>&times;</button>
                 
                 {!bookingConfirmed ? (
                   <form onSubmit={handleBookingSubmit} className="booking-modal-form">
