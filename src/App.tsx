@@ -32,7 +32,7 @@ const VILLA_ROOMS = [
     priceLabel: "₹18,000 / night",
     guests: "Ideal for 1-4 Guests",
     size: "1,200 sq ft",
-    amenities: ["King Bed", "Private Terrace", "Living Room", "Infinity Pool Access", "Dedicated Service", "Premium Linens"]
+    amenities: ["King Bed", "Private Terrace", "Living Room", "Air Conditioned", "Wifi Enabled", "Infinity Pool Access", "Dedicated Service", "Premium Linens"]
   },
   {
     id: "outside-rooms",
@@ -43,7 +43,7 @@ const VILLA_ROOMS = [
     priceLabel: "₹12,000 / night (as addition to Villa)",
     guests: "Ideal for 5-8 Guests (Villa + Studios)",
     size: "800 sq ft",
-    amenities: ["Queen Beds", "Garden Walkway", "Air Conditioned", "Private Entrances", "Smart TV", "Wifi Enabled"]
+    amenities: ["King Beds", "Private Entrances", "Garden Walkway", "Air Conditioned", "Wifi Enabled", "Infinity Pool Access", "Dedicated Service", "Premium Linens"]
   }
 ];
 
@@ -81,9 +81,14 @@ const EXPERIENCES_LIST = [
     desc: "The perfect country road trip. Reach Kongara Kalan in less than an hour from the city and sink into instant countryside peace."
   },
   {
-    title: "Private Gatherings",
+    title: "Events",
     image: "/assets/haldi.jpg",
-    desc: "Secluded executive team meets or private celebrations. Benefit from high-speed internet, dedicated service, and spacious breakout lawns."
+    desc: "From corporate retreats and workshops to festive ceremonies, our versatile spaces adapt to your professional and social hosting needs."
+  },
+  {
+    title: "Private Gatherings",
+    image: "/assets/haldi_2.jpg",
+    desc: "Intimate get-togethers, reunion dinners, or casual sundowners. Enjoy exclusive privacy and dedicated services designed specifically for your close group."
   }
 ];
 
@@ -754,7 +759,7 @@ export default function App() {
           {/* Header Navigation */}
           <header className={`header-nav ${isScrolled || currentPage !== "home" ? "scrolled" : ""}`}>
             <a className="logo-container" onClick={() => { navigateToPage("home"); setIsMobileMenuOpen(false); }}>
-              <img src="/assets/Logo.svg" alt="Parthos Chalet Logo" className="logo-image" />
+              <img src="/assets/header logo.png" alt="Parthos Chalet Logo" className="logo-image" />
             </a>
 
             <nav className="nav-links">
@@ -793,7 +798,7 @@ export default function App() {
           <div className={`mobile-nav-drawer ${isMobileMenuOpen ? "open" : ""}`}>
             <div className="drawer-header">
               <a className="logo-container" onClick={() => { navigateToPage("home"); setIsMobileMenuOpen(false); }}>
-                <img src="/assets/Logo.svg" alt="Parthos Chalet Logo" className="logo-image-mobile" />
+                <img src="/assets/header logo.png" alt="Parthos Chalet Logo" className="logo-image-mobile" />
               </a>
               <button className="drawer-close" onClick={() => setIsMobileMenuOpen(false)}>&times;</button>
             </div>
@@ -1450,14 +1455,11 @@ export default function App() {
                   Parthos Chalet is a luxury farm stay near Hyderabad offering a private villa, infinity pool, expansive lawns, and peaceful countryside experiences for families, friends, and celebrations.
                 </p>
                 <div className="social-links">
-                  <a href="#" className="social-link" aria-label="Instagram">
+                  <a href="https://www.instagram.com/parthos_chalet/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram">
                     <img src="/assets/instagram.svg" alt="Instagram" />
                   </a>
-                  <a href="#" className="social-link" aria-label="Facebook">
+                  <a href="https://www.facebook.com/people/Parthos-Chalet/pfbid0dE12XKvBJf6jkv2H584AiwzTCYTv1igCKPSFsjbwJMHWKwQAgcDusLSSvDEwt2c2l/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Facebook">
                     <img src="/assets/facebook.svg" alt="Facebook" />
-                  </a>
-                  <a href="#" className="social-link" aria-label="X">
-                    <img src="/assets/twitter_x.svg" alt="X" />
                   </a>
                 </div>
               </div>
