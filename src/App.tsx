@@ -715,16 +715,14 @@ export default function App() {
                       </div>
                     </div>
 
-                    <div className="form-row">
-                      <div className="form-group" style={{ width: "100%" }}>
-                        <label htmlFor="guests">Number of Guests</label>
-                        <select id="guests" name="guests" value={bookingForm.guests} onChange={handleBookingChange}>
-                          <option value="1-4 Guests">1-4 Guests</option>
-                          <option value="5-8 Guests">5-8 Guests</option>
-                          <option value="9-12 Guests">9-12 Guests</option>
-                          <option value="12+ Guests">12+ Guests</option>
-                        </select>
-                      </div>
+                    <div className="form-group">
+                      <label htmlFor="guests">Number of Guests</label>
+                      <select id="guests" name="guests" value={bookingForm.guests} onChange={handleBookingChange}>
+                        <option value="1-4 Guests">1-4 Guests</option>
+                        <option value="5-8 Guests">5-8 Guests</option>
+                        <option value="9-12 Guests">9-12 Guests</option>
+                        <option value="12+ Guests">12+ Guests</option>
+                      </select>
                     </div>
 
                     <button type="submit" className="btn-gold modal-submit-btn">Reserve Now</button>
