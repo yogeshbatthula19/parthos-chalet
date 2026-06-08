@@ -83,7 +83,7 @@ const EXPERIENCES_LIST = [
   {
     title: "Events",
     image: "/assets/haldi.jpg",
-    desc: "From corporate retreats and workshops to festive ceremonies, our versatile spaces adapt to your professional and social hosting needs."
+    desc: "From traditional Haldi and Mehendi ceremonies to festive family functions, our beautiful lawns and setups adapt perfectly to your celebratory hosting needs."
   },
   {
     title: "Private Gatherings",
