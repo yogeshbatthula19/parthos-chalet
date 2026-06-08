@@ -87,7 +87,7 @@ const EXPERIENCES_LIST = [
   },
   {
     title: "Private Gatherings",
-    image: "/assets/haldi_2.jpg",
+    image: "/assets/PrivatGathering.png",
     desc: "Intimate get-togethers, reunion dinners, or casual sundowners. Enjoy exclusive privacy and dedicated services designed specifically for your close group."
   }
 ];
