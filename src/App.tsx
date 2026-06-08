@@ -25,23 +25,23 @@ const HERO_SLIDES = [
 const VILLA_ROOMS = [
   {
     id: "one-bhk-villa",
-    name: "1 BHK Luxury Villa",
+    name: "Canadian Wooden Villa",
     image: "/assets/main.jpg",
-    description: "Our premium 1 BHK private sanctuary featuring high wooden beams, elegant living room space, king-size bed, private terrace, and floor-to-ceiling glass windows offering beautiful garden and countryside views.",
+    description: "Our premium private sanctuary crafted with elegant Canadian wood and high rustic beams. Features a spacious living area, king-size bed, private terrace, and floor-to-ceiling glass windows offering panoramic garden views.",
     price: 18000,
     priceLabel: "₹18,000 / night",
-    guests: "2 Adults + 2 Children",
+    guests: "Ideal for 1-4 Guests",
     size: "1,200 sq ft",
     amenities: ["King Bed", "Private Terrace", "Living Room", "Infinity Pool Access", "Dedicated Service", "Premium Linens"]
   },
   {
     id: "outside-rooms",
-    name: "Independent Outside Rooms",
+    name: "Stone Elevated / Lawn Facing Studios",
     image: "/assets/new_rooms.jpg",
-    description: "Two comfortable independent rooms located right outside the main villa. Perfect for larger groups or extra guests wanting privacy, featuring premium comfort, direct garden access, and cozy layouts.",
+    description: "Two independent, elegantly styled elevated stone studios with spectacular lawn facing views. Perfect for larger families or groups, offering direct garden access, premium modern comforts, and privacy.",
     price: 12000,
-    priceLabel: "₹12,000 / night",
-    guests: "4 Adults (2 per room)",
+    priceLabel: "₹12,000 / night (as addition to Villa)",
+    guests: "Ideal for 5-8 Guests (Villa + Studios)",
     size: "800 sq ft",
     amenities: ["Queen Beds", "Garden Walkway", "Air Conditioned", "Private Entrances", "Smart TV", "Wifi Enabled"]
   }
@@ -174,7 +174,7 @@ export default function App() {
     phone: "",
     checkIn: "",
     checkOut: "",
-    guests: "2 Guests",
+    guests: "1-4 Guests",
     roomPreference: "one-bhk-villa"
   });
 
@@ -212,7 +212,7 @@ export default function App() {
         break;
       case "rooms":
         title = "Stay & Luxury Suites | Parthos Chalet Villa";
-        description = "Explore our premium 1 BHK Luxury Villa and independent outside rooms. Book your private sanctuary with luxury amenities near Hyderabad.";
+        description = "Explore our premium Canadian Wooden Villa and Stone Elevated / Lawn Facing Studios. Book your private sanctuary with luxury amenities near Hyderabad.";
         break;
       case "experiences":
         title = "Experiences & Private Events | Parthos Chalet Villa";
@@ -344,7 +344,17 @@ export default function App() {
 
   const handleBookingChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setBookingForm((prev) => ({ ...prev, [name]: value }));
+    setBookingForm((prev) => {
+      const updated = { ...prev, [name]: value };
+      if (name === "guests") {
+        if (value === "1-4 Guests") {
+          updated.roomPreference = "one-bhk-villa";
+        } else {
+          updated.roomPreference = "outside-rooms";
+        }
+      }
+      return updated;
+    });
   };
 
   // ==========================================
@@ -444,7 +454,7 @@ export default function App() {
         phone: "",
         checkIn: "",
         checkOut: "",
-        guests: "2 Guests",
+        guests: "1-4 Guests",
         roomPreference: "one-bhk-villa"
       });
     }, 3000);
@@ -709,17 +719,17 @@ export default function App() {
                       <div className="form-group">
                         <label htmlFor="guests">Number of Guests</label>
                         <select id="guests" name="guests" value={bookingForm.guests} onChange={handleBookingChange}>
-                          <option>2 Guests</option>
-                          <option>4 Guests</option>
-                          <option>6 Guests</option>
-                          <option>8+ Guests</option>
+                          <option value="1-4 Guests">1-4 Guests</option>
+                          <option value="5-8 Guests">5-8 Guests</option>
+                          <option value="9-12 Guests">9-12 Guests</option>
+                          <option value="12+ Guests">12+ Guests</option>
                         </select>
                       </div>
                       <div className="form-group">
-                        <label htmlFor="roomPreference">Suite Preference</label>
-                        <select id="roomPreference" name="roomPreference" value={bookingForm.roomPreference} onChange={handleBookingChange}>
-                          <option value="one-bhk-villa">1 BHK Luxury Villa</option>
-                          <option value="outside-rooms">Independent Outside Rooms</option>
+                        <label htmlFor="roomPreference">Allocated Accommodation</label>
+                        <select id="roomPreference" name="roomPreference" value={bookingForm.roomPreference} disabled style={{ opacity: 0.95, cursor: "not-allowed", backgroundColor: "#f9f9f9" }}>
+                          <option value="one-bhk-villa">Canadian Wooden Villa (Entire Villa)</option>
+                          <option value="outside-rooms">Villa + Studios (Entire Estate)</option>
                         </select>
                       </div>
                     </div>
@@ -961,18 +971,18 @@ export default function App() {
                 <div className="experience-grid">
                   <div className="experience-card" onClick={() => navigateToPage("rooms")}>
                     <div className="card-img-wrapper">
-                      <img src="/assets/main.jpg" alt="1 BHK Luxury Villa" className="experience-img" loading="lazy" />
+                      <img src="/assets/main.jpg" alt="Canadian Wooden Villa" className="experience-img" loading="lazy" />
                       <div className="card-overlay">
-                        <h3 className="card-title">1 BHK Luxury Villa</h3>
+                        <h3 className="card-title">Canadian Wooden Villa</h3>
                       </div>
                     </div>
                   </div>
 
                   <div className="experience-card" onClick={() => navigateToPage("rooms")}>
                     <div className="card-img-wrapper">
-                      <img src="/assets/new_rooms.jpg" alt="Independent Outside Rooms" className="experience-img" loading="lazy" />
+                      <img src="/assets/new_rooms.jpg" alt="Stone Elevated / Lawn Facing Studios" className="experience-img" loading="lazy" />
                       <div className="card-overlay">
-                        <h3 className="card-title">Independent Outside Rooms</h3>
+                        <h3 className="card-title">Stone Elevated / Lawn Facing Studios</h3>
                       </div>
                     </div>
                   </div>
@@ -1241,11 +1251,16 @@ export default function App() {
           {currentPage === "rooms" && (
             <div className="subpage-wrapper">
               <section className="subpage-hero" style={{ backgroundImage: "linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('/assets/suite_royal.png')" }}>
-                <h1>LUXURY SUITES</h1>
-                <p>Thoughtfully curated spaces built for absolute comfort.</p>
+                <h1>ESTATE ACCOMMODATION</h1>
+                <p>Private luxury countryside living, booked as a complete estate package tailored to your group size.</p>
               </section>
 
               <section className="rooms-list-section" style={{ padding: "80px 8%" }}>
+                <div style={{ textAlign: "center", marginBottom: "50px", color: "var(--text-gray)" }}>
+                  <p style={{ fontSize: "16px", maxWidth: "700px", margin: "0 auto" }}>
+                    To ensure absolute privacy, we host only one group at a time. The entire estate or villa sections are automatically reserved for you based on the number of guests.
+                  </p>
+                </div>
                 {VILLA_ROOMS.map((room, idx) => (
                   <div key={room.id} className="room-detail-card" style={{ direction: idx % 2 === 1 ? "rtl" : "ltr" }}>
                     <div className="room-card-image">
@@ -1262,10 +1277,14 @@ export default function App() {
                       </div>
 
                       <button className="btn-gold" style={{ padding: "12px 28px", marginTop: "15px" }} onClick={() => {
-                        setBookingForm(prev => ({ ...prev, roomPreference: room.id }));
+                        setBookingForm(prev => ({
+                          ...prev,
+                          roomPreference: room.id,
+                          guests: room.id === "one-bhk-villa" ? "1-4 Guests" : "5-8 Guests"
+                        }));
                         setShowBookingPopup(true);
                         trackClick("Room Select Click", `Selected Room: ${room.name}`);
-                      }}>Book This Room</button>
+                      }}>Book Your Stay</button>
                     </div>
                   </div>
                 ))}
@@ -1345,8 +1364,26 @@ export default function App() {
                     </div>
                     <div className="contact-item-block">
                       <span className="contact-key" style={{ fontSize: "12px" }}>Location</span>
-                      <span className="contact-val" style={{ fontSize: "18px", fontWeight: 600 }}>Kongara Kalan, Hyderabad</span>
+                      <span className="contact-val" style={{ fontSize: "18px", fontWeight: 600 }}>
+                        <a href="https://share.google/OuLXJAMqjIjKYH5Gk" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none" }}>
+                          Parthos Chalet Villa 📍
+                          <span style={{ display: "block", fontSize: "13px", color: "var(--primary-gold)", fontWeight: 500, marginTop: "4px", textDecoration: "underline" }}>Get Directions ➔</span>
+                        </a>
+                      </span>
                     </div>
+                  </div>
+
+                  <div className="mini-map-container" style={{ width: "100%", height: "220px", borderRadius: "8px", overflow: "hidden", border: "1px solid var(--border-color)", boxShadow: "0 4px 15px rgba(0,0,0,0.06)", marginTop: "10px" }}>
+                    <iframe
+                      title="Parthos Chalet Location Map"
+                      src="https://maps.google.com/maps?q=Parthos%20Chalet%20Villa%2C%20Kongara%20Kalan%2C%20Hyderabad&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    ></iframe>
                   </div>
                 </div>
 
@@ -1465,7 +1502,12 @@ export default function App() {
                 </div>
                 <div className="contact-item-block">
                   <span className="contact-key">Location</span>
-                  <span className="contact-val">Kongara Kalan, Hyderabad</span>
+                  <span className="contact-val">
+                    <a href="https://share.google/OuLXJAMqjIjKYH5Gk" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none" }}>
+                      Parthos Chalet Villa 📍
+                      <span style={{ display: "block", fontSize: "11px", color: "var(--primary-gold)", marginTop: "2px", textDecoration: "underline" }}>Get Directions ➔</span>
+                    </a>
+                  </span>
                 </div>
               </div>
             </div>
