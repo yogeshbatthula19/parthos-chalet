@@ -404,7 +404,7 @@ export default function App() {
   };
 
   // Google Apps Script Web App URL
-  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxiyPFevM5cV8SZDlf-Vbf3fL2SPlqoBCsyOdcx2zrmhkK7LMtCdYG-x63ISdT9g_8O/exec";
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyBgjO6VwEoXljBw89kx87xV_GzGyW924xeqpwS1VGdXkOLQWJlU1AAW9SM1FoeOJGSvw/exec";
 
   const handleBookingSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
