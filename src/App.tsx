@@ -87,7 +87,7 @@ const EXPERIENCES_LIST = [
   },
   {
     title: "Private Gatherings",
-    image: "/assets/PrivatGathering.png",
+    image: "/assets/PrivatGathering.jpg",
     desc: "Intimate get-togethers, reunion dinners, or casual sundowners. Enjoy exclusive privacy and dedicated services designed specifically for your close group."
   }
 ];
@@ -102,8 +102,8 @@ const GALLERY_IMAGES = [
   { src: "/assets/haldi_2.jpg", tag: "Celebrations" },
   { src: "/assets/candle.jpg", tag: "Experiences" },
   { src: "/assets/kitty.jpg", tag: "Gatherings" },
-  { src: "/assets/about.png", tag: "Interiors" },
-  { src: "/assets/fine_dining.png", tag: "Experiences" }
+  { src: "/assets/about.jpg", tag: "Interiors" },
+  { src: "/assets/fine_dining.jpg", tag: "Experiences" }
 ];
 
 interface Booking {
@@ -929,7 +929,7 @@ export default function App() {
                 className={`about-section reveal-element ${aboutVisible ? "revealed" : ""}`}
               >
                 <div className="about-image-container">
-                  <img src="/assets/about.png" alt="Living Room" className="about-image" loading="lazy" />
+                  <img src="/assets/about.jpg" alt="Living Room" className="about-image" loading="lazy" />
                 </div>
                 <div className="about-content">
                   <span className="eyebrow">ABOUT PARTHOS CHALET</span>
@@ -1163,7 +1163,7 @@ export default function App() {
               </section>
 
               {/* Nearby Section */}
-              <section className="nearby-section" style={{ padding: "80px 8% 100px", background: "linear-gradient(rgba(15,26,25,0.95), rgba(15,26,25,0.95)), url('/assets/hero_bg.png') no-repeat center/cover", color: "white", textAlign: "center" }}>
+              <section className="nearby-section" style={{ padding: "80px 8% 100px", background: "linear-gradient(rgba(15,26,25,0.95), rgba(15,26,25,0.95)), url('/assets/hero_bg.jpg') no-repeat center/cover", color: "white", textAlign: "center" }}>
                 <span className="eyebrow" style={{ display: "block", marginBottom: "10px", color: "var(--primary-gold)" }}>CONVENIENTLY LOCATED</span>
                 <h2 className="section-headline" style={{ color: "white", textAlign: "center", marginBottom: "20px" }}>Close To The City. Far From The Noise.</h2>
                 <p style={{ maxWidth: "700px", margin: "0 auto 15px", lineHeight: "1.7", color: "rgba(255,255,255,0.85)" }}>
@@ -1210,14 +1210,14 @@ export default function App() {
           {/* DEDICATED ABOUT PAGE */}
           {currentPage === "about" && (
             <div className="subpage-wrapper">
-              <section className="subpage-hero" style={{ backgroundImage: "linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('/assets/about.png')" }}>
+              <section className="subpage-hero" style={{ backgroundImage: "linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('/assets/about.jpg')" }}>
                 <h1>OUR STORY</h1>
                 <p>Where wilderness meets absolute private luxury.</p>
               </section>
 
               <section className="about-section" style={{ padding: "80px 8% 40px" }}>
                 <div className="about-image-container">
-                  <img src="/assets/about.png" alt="Living Room" className="about-image" loading="lazy" />
+                  <img src="/assets/about.jpg" alt="Living Room" className="about-image" loading="lazy" />
                 </div>
                 <div className="about-content">
                   <span className="eyebrow">ABOUT PARTHOS</span>
@@ -1251,7 +1251,7 @@ export default function App() {
                   </div>
                 </div>
                 <div className="about-image-container">
-                  <img src="/assets/wellness_spa.png" alt="Villa Estate View" className="about-image" loading="lazy" />
+                  <img src="/assets/wellness_spa.jpg" alt="Villa Estate View" className="about-image" loading="lazy" />
                 </div>
               </section>
             </div>
@@ -1260,7 +1260,7 @@ export default function App() {
           {/* DEDICATED STAY (ROOMS) PAGE */}
           {currentPage === "rooms" && (
             <div className="subpage-wrapper">
-              <section className="subpage-hero" style={{ backgroundImage: "linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('/assets/suite_royal.png')" }}>
+              <section className="subpage-hero" style={{ backgroundImage: "linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('/assets/suite_royal.jpg')" }}>
                 <h1>ESTATE ACCOMMODATION</h1>
                 <p>Private luxury countryside living, booked as a complete estate package tailored to your group size.</p>
               </section>
@@ -1305,7 +1305,7 @@ export default function App() {
           {/* DEDICATED EXPERIENCES PAGE */}
           {currentPage === "experiences" && (
             <div className="subpage-wrapper">
-              <section className="subpage-hero" style={{ backgroundImage: "linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('/assets/event_winter_ceremony.png')" }}>
+              <section className="subpage-hero" style={{ backgroundImage: "linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('/assets/event_winter_ceremony.jpg')" }}>
                 <h1>VILLA EXPERIENCES</h1>
                 <p>Tailored moments to relax, connect, and celebrate.</p>
               </section>
@@ -1330,7 +1330,7 @@ export default function App() {
           {/* DEDICATED GALLERY PAGE */}
           {currentPage === "gallery" && (
             <div className="subpage-wrapper">
-              <section className="subpage-hero" style={{ backgroundImage: "linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('/assets/event_chef_table.png')" }}>
+              <section className="subpage-hero" style={{ backgroundImage: "linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('/assets/event_chef_table.jpg')" }}>
                 <h1>VILLA GALLERY</h1>
                 <p>Take a visual journey through Parthos Chalet Villa.</p>
               </section>
@@ -1351,7 +1351,7 @@ export default function App() {
           {/* DEDICATED CONTACT PAGE */}
           {currentPage === "contact" && (
             <div className="subpage-wrapper">
-              <section className="subpage-hero" style={{ backgroundImage: "linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('/assets/hero_bg.png')" }}>
+              <section className="subpage-hero" style={{ backgroundImage: "linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('/assets/hero_bg.jpg')" }}>
                 <h1>GET IN TOUCH</h1>
                 <p>Plan your custom countryside escape with us today.</p>
               </section>
