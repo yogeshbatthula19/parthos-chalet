@@ -2087,3 +2087,69 @@
     height: 48px;
   }
 }
+
+/* Modal Direct Contact Options */
+.modal-or-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 18px 0;
+  gap: 10px;
+  color: var(--text-gray);
+  font-size: 11px;
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.modal-or-divider::before,
+.modal-or-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: var(--border-color);
+}
+
+.modal-direct-actions {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.modal-action-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  height: 44px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: var(--transition-fast);
+}
+
+.modal-action-btn.call {
+  border: 1px solid var(--border-color);
+  color: var(--text-dark);
+  background-color: transparent;
+}
+
+.modal-action-btn.call:hover {
+  background-color: #f7faf9;
+  border-color: var(--text-dark);
+}
+
+.modal-action-btn.whatsapp {
+  border: 1px solid #25D366;
+  color: #25D366;
+  background-color: rgba(37, 211, 102, 0.02);
+}
+
+.modal-action-btn.whatsapp:hover {
+  background-color: #25D366;
+  color: white;
+}

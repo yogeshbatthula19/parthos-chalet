@@ -745,6 +745,17 @@ export default function App() {
                     </div>
 
                     <button type="submit" className="btn-gold modal-submit-btn">Reserve Now</button>
+                    
+                    <div className="modal-or-divider">OR CONNECT DIRECTLY</div>
+                    
+                    <div className="modal-direct-actions">
+                      <a href="tel:+917569262716" className="modal-action-btn call">
+                        📞 Call Us
+                      </a>
+                      <a href="https://wa.me/917569262716" target="_blank" rel="noopener noreferrer" className="modal-action-btn whatsapp">
+                        💬 WhatsApp
+                      </a>
+                    </div>
                   </form>
                 ) : (
                   <div className="booking-success-message">
