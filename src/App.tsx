@@ -749,10 +749,10 @@ export default function App() {
                     <div className="modal-or-divider">OR CONNECT DIRECTLY</div>
                     
                     <div className="modal-direct-actions">
-                      <a href="tel:+917569262716" className="modal-action-btn call">
+                      <a href="tel:+917569287138" className="modal-action-btn call">
                         📞 Call Us
                       </a>
-                      <a href="https://wa.me/917569262716" target="_blank" rel="noopener noreferrer" className="modal-action-btn whatsapp">
+                      <a href="https://wa.me/917569287138" target="_blank" rel="noopener noreferrer" className="modal-action-btn whatsapp">
                         💬 WhatsApp
                       </a>
                     </div>
@@ -1554,7 +1554,7 @@ export default function App() {
       {/* Floating Call & WhatsApp Action Buttons */}
       <div className="floating-contact-buttons">
         <a 
-          href="https://wa.me/917569262716" 
+          href="https://wa.me/917569287138" 
           target="_blank" 
           rel="noopener noreferrer" 
           className="floating-btn whatsapp-btn"
@@ -1565,7 +1565,7 @@ export default function App() {
           </svg>
         </a>
         <a 
-          href="tel:+917569262716" 
+          href="tel:+917569287138" 
           className="floating-btn call-btn"
           aria-label="Call Us"
         >
